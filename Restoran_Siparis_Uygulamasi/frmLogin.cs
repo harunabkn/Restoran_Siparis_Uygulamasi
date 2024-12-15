@@ -24,7 +24,20 @@ namespace Restoran_Siparis_Uygulamasi
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            //buton için veritabanı ve kullanıcılar tablosu oluştur ve örnek bir kullanıcı ata
+            //main class içerisine veritabanı bağlantısı ve kullanıcı doğrulama fonksiyonu (IsValidUser) yazılması gerekli
+
+            if(MainClass.IsValidUser(txtKullanici.Text, txtSifre.Text) == false )
+            {
+                hataliGiris.Show("Geçersiz kullanıcı adı veya şifre");
+                return;
+            }
+            else
+            {
+                this.Hide();
+                frmMain frm= new frmMain();
+                frm.Show();
+            }
+            // veritabanına örnek bir kullanıcı eklenmesi gerekli test için
         }
     }
 }

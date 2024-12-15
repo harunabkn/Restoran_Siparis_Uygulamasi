@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnGiris = new Guna.UI2.WinForms.Guna2Button();
             this.btnCikis = new Guna.UI2.WinForms.Guna2Button();
+            this.hataliGiris = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -169,6 +170,15 @@
             this.btnCikis.Text = "Çıkış";
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
+            // hataliGiris
+            // 
+            this.hataliGiris.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.hataliGiris.Caption = "RMS";
+            this.hataliGiris.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+            this.hataliGiris.Parent = this;
+            this.hataliGiris.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            this.hataliGiris.Text = null;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -206,6 +216,7 @@
         private Guna.UI2.WinForms.Guna2Button btnCikis;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2MessageDialog hataliGiris;
     }
 }
 
