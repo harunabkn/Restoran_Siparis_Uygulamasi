@@ -26,7 +26,7 @@ namespace Restoran_Siparis_Uygulamasi
         {
             //main class içerisine veritabanı bağlantısı ve kullanıcı doğrulama fonksiyonu (IsValidUser) yazılması gerekli
 
-            if(MainClass.IsValidUser(txtKullanici.Text, txtSifre.Text) == false )
+            if (MainClass.KullaniciKontrol(txtKullanici.Text, txtSifre.Text) == false )
             {
                 hataliGiris.Show("Geçersiz kullanıcı adı veya şifre");
                 return;
