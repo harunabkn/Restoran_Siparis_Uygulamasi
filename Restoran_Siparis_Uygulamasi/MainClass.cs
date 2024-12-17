@@ -11,7 +11,7 @@ namespace Restoran_Siparis_Uygulamasi
 {
     internal class MainClass
     {
-        public static readonly string conection = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        public static readonly string conection = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
         public static SqlConnection con = new SqlConnection(conection);
 
