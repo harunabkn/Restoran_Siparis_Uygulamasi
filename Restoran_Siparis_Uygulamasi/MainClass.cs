@@ -28,9 +28,19 @@ namespace Restoran_Siparis_Uygulamasi
             if (veri.Rows.Count > 0)
             {
                 kontrol = true;
+                KULLANICI = veri.Rows[0]["klnAdi"].ToString();
             }
 
             return kontrol;
+        }
+
+
+
+        public static string kullanici;
+        public static string KULLANICI
+        {
+            get { return kullanici; }
+            private set { kullanici = value; }
         }
     }
 }

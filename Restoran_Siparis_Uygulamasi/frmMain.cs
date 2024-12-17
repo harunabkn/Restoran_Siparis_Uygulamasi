@@ -17,6 +17,15 @@ namespace Restoran_Siparis_Uygulamasi
             InitializeComponent();
         }
 
+        public void AddControls(Form f)
+        {
+            ControlsPanel.Controls.Clear();
+            f.Dock = DockStyle.Fill;
+            f.TopLevel = false;
+            ControlsPanel.Controls.Add(f);
+            f.Show();
+        }
+
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -24,7 +33,12 @@ namespace Restoran_Siparis_Uygulamasi
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            lblKullanici.Text = MainClass.KULLANICI;
+        }
 
+        private void btnAnasayfa_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmHome());
         }
     }
 }
