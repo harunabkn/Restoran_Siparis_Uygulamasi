@@ -1,4 +1,5 @@
-﻿using Restoran_Siparis_Uygulamasi.Model;
+﻿using Guna.UI2.WinForms;
+using Restoran_Siparis_Uygulamasi.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name =="dgvedit")
             {
+                
                 frmCategoryAdd frm = new frmCategoryAdd();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
