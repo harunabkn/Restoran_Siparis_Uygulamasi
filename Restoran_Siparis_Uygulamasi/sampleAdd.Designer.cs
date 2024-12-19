@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnKaydet = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCikis = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKaydet = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -50,28 +51,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(726, 100);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.btnCikis);
-            this.guna2Panel2.Controls.Add(this.btnKaydet);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 388);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(726, 73);
-            this.guna2Panel2.TabIndex = 1;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(24, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(80, 79);
-            this.guna2PictureBox1.TabIndex = 2;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -84,25 +63,27 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Başlık";
             // 
-            // btnKaydet
+            // guna2PictureBox1
             // 
-            this.btnKaydet.AutoRoundedCorners = true;
-            this.btnKaydet.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnKaydet.BorderRadius = 21;
-            this.btnKaydet.CustomizableEdges.TopRight = false;
-            this.btnKaydet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnKaydet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnKaydet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnKaydet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnKaydet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnKaydet.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnKaydet.ForeColor = System.Drawing.Color.White;
-            this.btnKaydet.Location = new System.Drawing.Point(24, 16);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(106, 45);
-            this.btnKaydet.TabIndex = 0;
-            this.btnKaydet.Text = "KAYDET";
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(24, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(80, 79);
+            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.btnCikis);
+            this.guna2Panel2.Controls.Add(this.btnKaydet);
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel2.FillColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 388);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(726, 73);
+            this.guna2Panel2.TabIndex = 1;
             // 
             // btnCikis
             // 
@@ -124,6 +105,35 @@
             this.btnCikis.Text = "ÇIKIŞ";
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
+            // btnKaydet
+            // 
+            this.btnKaydet.AutoRoundedCorners = true;
+            this.btnKaydet.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnKaydet.BorderRadius = 21;
+            this.btnKaydet.CustomizableEdges.TopRight = false;
+            this.btnKaydet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKaydet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKaydet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKaydet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKaydet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnKaydet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKaydet.ForeColor = System.Drawing.Color.White;
+            this.btnKaydet.Location = new System.Drawing.Point(24, 16);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(106, 45);
+            this.btnKaydet.TabIndex = 0;
+            this.btnKaydet.Text = "KAYDET";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // guna2MessageDialog1
+            // 
+            this.guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.guna2MessageDialog1.Caption = "RM";
+            this.guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question;
+            this.guna2MessageDialog1.Parent = this;
+            this.guna2MessageDialog1.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.guna2MessageDialog1.Text = null;
+            // 
             // sampleAdd
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -139,8 +149,8 @@
             this.Text = "sampleAdd";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -152,5 +162,6 @@
         public Guna.UI2.WinForms.Guna2Button btnCikis;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         public Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        public Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
     }
 }
