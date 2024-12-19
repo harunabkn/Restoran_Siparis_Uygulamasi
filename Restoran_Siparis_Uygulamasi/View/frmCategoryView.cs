@@ -35,7 +35,7 @@ namespace Restoran_Siparis_Uygulamasi.View
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                 frm.ShowDialog();
-                GetData();
+                //GetData();
             } //devamını sana bıraktım veritabanı kısmı
             
         }
