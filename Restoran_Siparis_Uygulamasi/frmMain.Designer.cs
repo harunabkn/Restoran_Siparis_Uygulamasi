@@ -208,6 +208,7 @@
             this.btnMasalar.Text = "Masalar";
             this.btnMasalar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnMasalar.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnMasalar.Click += new System.EventHandler(this.btnMasalar_Click);
             // 
             // btnUrunler
             // 
@@ -264,6 +265,7 @@
             this.btnKategoriler.Text = "Kategoriler";
             this.btnKategoriler.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKategoriler.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnKategoriler.Click += new System.EventHandler(this.btnKategoriler_Click);
             // 
             // btnAnasayfa
             // 

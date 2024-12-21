@@ -182,6 +182,7 @@
             this.Controls.Add(this.guna2DataGridView1);
             this.Name = "frmTableView";
             this.Text = "frmTableView";
+            this.Load += new System.EventHandler(this.frmTableView_Load_1);
             this.Controls.SetChildIndex(this.txtAra, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnEkle, 0);

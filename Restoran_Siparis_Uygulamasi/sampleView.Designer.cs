@@ -127,6 +127,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "sampleView";
             this.Text = "sampleView";
+            this.Load += new System.EventHandler(this.sampleView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,8 +137,8 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         public Guna.UI2.WinForms.Guna2ImageButton btnEkle;
         public System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
         public Guna.UI2.WinForms.Guna2TextBox txtAra;
         public System.Windows.Forms.Label label1;
+        public Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
     }
 }

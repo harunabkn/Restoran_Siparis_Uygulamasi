@@ -68,6 +68,7 @@
             // 
             this.guna2Panel1.Size = new System.Drawing.Size(324, 100);
             this.guna2Panel1.TabIndex = 3;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2Panel2
             // 
@@ -97,7 +98,6 @@
             this.txtIsım.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtIsım.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIsım.Location = new System.Drawing.Point(47, 158);
-            this.txtIsım.Modified = true;
             this.txtIsım.Name = "txtIsım";
             this.txtIsım.PasswordChar = '\0';
             this.txtIsım.PlaceholderText = "";

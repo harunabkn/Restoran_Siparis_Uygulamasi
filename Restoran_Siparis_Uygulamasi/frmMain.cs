@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restoran_Siparis_Uygulamasi.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,16 @@ namespace Restoran_Siparis_Uygulamasi
         private void btnAnasayfa_Click(object sender, EventArgs e)
         {
             AddControls(new frmHome());
+        }
+
+        private void btnKategoriler_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmCategoryView());
+        }
+
+        private void btnMasalar_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmTableView());
         }
     }
 }

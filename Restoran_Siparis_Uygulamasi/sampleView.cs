@@ -26,5 +26,10 @@ namespace Restoran_Siparis_Uygulamasi
         {
 
         }
+
+        private void sampleView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
