@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.View
 {
-    partial class frmCategoryView
+    partial class frmProductView
     {
         /// <summary>
         /// Required designer variable.
@@ -20,7 +20,6 @@
             base.Dispose(disposing);
         }
 
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -36,6 +35,9 @@
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcatID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvedit = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvdel = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -51,8 +53,8 @@
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(139, 25);
-            this.label2.Text = "Kategori Listesi";
+            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Text = "Ürün Listesi";
             // 
             // txtAra
             // 
@@ -62,6 +64,11 @@
             this.txtAra.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAra.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAra.Location = new System.Drawing.Point(764, 98);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(761, 78);
             // 
             // guna2DataGridView1
             // 
@@ -90,6 +97,9 @@
             this.dgvSno,
             this.dgvid,
             this.dgvName,
+            this.dgvPrice,
+            this.dgvcatID,
+            this.dgvcat,
             this.dgvedit,
             this.dgvdel});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -108,8 +118,8 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowTemplate.Height = 35;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(863, 374);
-            this.guna2DataGridView1.TabIndex = 5;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(863, 365);
+            this.guna2DataGridView1.TabIndex = 8;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -156,6 +166,25 @@
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 
+            // dgvPrice
+            // 
+            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            // 
+            // dgvcatID
+            // 
+            this.dgvcatID.HeaderText = "cID";
+            this.dgvcatID.Name = "dgvcatID";
+            this.dgvcatID.ReadOnly = true;
+            this.dgvcatID.Visible = false;
+            // 
+            // dgvcat
+            // 
+            this.dgvcat.HeaderText = "Category";
+            this.dgvcat.Name = "dgvcat";
+            this.dgvcat.ReadOnly = true;
+            // 
             // dgvedit
             // 
             this.dgvedit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -180,14 +209,14 @@
             this.dgvdel.ReadOnly = true;
             this.dgvdel.Width = 50;
             // 
-            // frmCategoryView
+            // frmProductView
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(933, 590);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(944, 550);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Name = "frmCategoryView";
-            this.Text = "frmCategoryView";
-            this.Load += new System.EventHandler(this.frmCategoryView_Load);
+            this.Name = "frmProductView";
+            this.Text = "frmProductView";
             this.Controls.SetChildIndex(this.txtAra, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnEkle, 0);
@@ -205,6 +234,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcatID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcat;
         private System.Windows.Forms.DataGridViewImageColumn dgvedit;
         private System.Windows.Forms.DataGridViewImageColumn dgvdel;
     }
