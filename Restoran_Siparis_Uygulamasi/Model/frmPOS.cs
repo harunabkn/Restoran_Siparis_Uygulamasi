@@ -46,5 +46,10 @@ namespace Restoran_Siparis_Uygulamasi.Model
         {
 
         }
+
+        private void btnYeni_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
