@@ -13,10 +13,17 @@ namespace Restoran_Siparis_Uygulamasi
 {
     public partial class frmMain : Form
     {
+        private frmMain _obj;
+
+        public static object Instance { get; internal set; }
+
         public frmMain()
         {
             InitializeComponent();
         }
+
+
+
 
         public void AddControls(Form f)
         {
