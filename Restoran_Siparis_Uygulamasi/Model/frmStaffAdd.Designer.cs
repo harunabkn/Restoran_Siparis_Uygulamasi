@@ -181,6 +181,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmStaffAdd";
             this.Text = "frmStaffAdd";
+            this.Load += new System.EventHandler(this.frmStaffAdd_Load);
             this.Controls.SetChildIndex(this.guna2Panel1, 0);
             this.Controls.SetChildIndex(this.guna2Panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);

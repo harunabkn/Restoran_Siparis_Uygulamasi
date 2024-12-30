@@ -34,12 +34,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIsım = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.txtImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnAra = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImage)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PictureBox1
@@ -162,18 +162,18 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "İsim";
             // 
-            // guna2CirclePictureBox1
+            // txtImage
             // 
-            this.guna2CirclePictureBox1.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_shopping_mall_100;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(528, 125);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(116, 142);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 14;
-            this.guna2CirclePictureBox1.TabStop = false;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
+            this.txtImage.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_shopping_mall_100;
+            this.txtImage.ImageRotate = 0F;
+            this.txtImage.Location = new System.Drawing.Point(528, 125);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.txtImage.Size = new System.Drawing.Size(116, 142);
+            this.txtImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.txtImage.TabIndex = 14;
+            this.txtImage.TabStop = false;
+            //this.txtImage.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
             // btnAra
             // 
@@ -190,6 +190,7 @@
             this.btnAra.Size = new System.Drawing.Size(116, 45);
             this.btnAra.TabIndex = 15;
             this.btnAra.Text = "Ara";
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
             // 
             // frmProductAdd
             // 
@@ -197,7 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 450);
             this.Controls.Add(this.btnAra);
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.txtImage);
             this.Controls.Add(this.cbKat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtFiyat);
@@ -206,6 +207,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmProductAdd";
             this.Text = "frmProductAdd";
+            this.Load += new System.EventHandler(this.frmProductAdd_Load);
             this.Controls.SetChildIndex(this.guna2Panel1, 0);
             this.Controls.SetChildIndex(this.guna2Panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
@@ -214,13 +216,13 @@
             this.Controls.SetChildIndex(this.txtFiyat, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.cbKat, 0);
-            this.Controls.SetChildIndex(this.guna2CirclePictureBox1, 0);
+            this.Controls.SetChildIndex(this.txtImage, 0);
             this.Controls.SetChildIndex(this.btnAra, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,7 +236,7 @@
         private System.Windows.Forms.Label label3;
         public Guna.UI2.WinForms.Guna2TextBox txtIsım;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox txtImage;
         private Guna.UI2.WinForms.Guna2Button btnAra;
     }
 }
