@@ -181,6 +181,7 @@
             this.btnPersonel.Text = "Personel";
             this.btnPersonel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPersonel.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnPersonel.Click += new System.EventHandler(this.btnPersonel_Click);
             // 
             // btnMasalar
             // 
@@ -238,6 +239,7 @@
             this.btnUrunler.Text = "Ürünler";
             this.btnUrunler.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUrunler.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnUrunler.Click += new System.EventHandler(this.btnUrunler_Click);
             // 
             // btnKategoriler
             // 

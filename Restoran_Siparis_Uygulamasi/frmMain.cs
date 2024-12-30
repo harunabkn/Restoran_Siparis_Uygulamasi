@@ -65,5 +65,15 @@ namespace Restoran_Siparis_Uygulamasi
             frmPOS frm = new frmPOS();
             frm.Show();
         }
+
+        private void btnPersonel_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmStaffView());
+        }
+
+        private void btnUrunler_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmProductView());
+        }
     }
 }

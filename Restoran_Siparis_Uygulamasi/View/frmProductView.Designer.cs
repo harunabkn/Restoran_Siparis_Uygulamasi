@@ -217,6 +217,7 @@
             this.Controls.Add(this.guna2DataGridView1);
             this.Name = "frmProductView";
             this.Text = "frmProductView";
+            this.Load += new System.EventHandler(this.frmProductView_Load);
             this.Controls.SetChildIndex(this.txtAra, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnEkle, 0);

@@ -39,5 +39,15 @@ namespace Restoran_Siparis_Uygulamasi
             }
             // veritabanına örnek bir kullanıcı eklenmesi gerekli test için
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)//enter tuşuna basılınca giriş butonunun tetiklenmesini sağğlamak için fonksiyon
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnGiris.PerformClick(); // Giriş butonunun tıklama olayını tetikleme
+                return true; // Tuşun işlendiğini bildirir
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
     }
 }
