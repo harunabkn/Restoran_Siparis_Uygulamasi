@@ -383,5 +383,14 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblToplam.Text = "00";
         }
 
+        private void btnFatura_Click(object sender, EventArgs e)
+        {
+            MainClass.BlurBackground(new frmBillList());
+        }
+
+        private void btnOdeme_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

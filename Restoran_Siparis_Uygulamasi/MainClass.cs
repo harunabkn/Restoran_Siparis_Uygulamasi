@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using Restoran_Siparis_Uygulamasi.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -153,8 +154,9 @@ namespace Restoran_Siparis_Uygulamasi
             cb.SelectedIndex = -1;
         }
 
-
-
-
+        internal static void BlurBackground(frmBillList frmBillList)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
