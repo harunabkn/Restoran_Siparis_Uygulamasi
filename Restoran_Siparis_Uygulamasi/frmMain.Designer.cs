@@ -124,6 +124,7 @@
             this.btnMutfak.Text = "Mutfak";
             this.btnMutfak.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnMutfak.TextOffset = new System.Drawing.Point(20, 0);
+            this.btnMutfak.Click += new System.EventHandler(this.btnMutfak_Click);
             // 
             // btnOdeme
             // 

@@ -75,5 +75,10 @@ namespace Restoran_Siparis_Uygulamasi
         {
             AddControls(new frmProductView());
         }
+
+        private void btnMutfak_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmKitchenView());
+        }
     }
 }
