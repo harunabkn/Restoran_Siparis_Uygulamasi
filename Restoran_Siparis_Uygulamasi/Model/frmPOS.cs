@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using Restoran_Siparis_Uygulamasi.Model;
+using Restoran_Siparis_Uygulamasi;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -382,15 +385,134 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblGarson.Text = "";
             lblToplam.Text = "00";
         }
+        public int id = 0;
 
         private void btnFatura_Click(object sender, EventArgs e)
         {
-            MainClass.BlurBackground(new frmBillList());
+            frmBillList frm = new frmBillList();
+            frm.Show(); // ShowDialog yerine Show kullan
+            frm.FormClosed += (s, ev) =>
+            {
+                if (frm.mainID > 0)
+                {
+                    id = frm.mainID;
+                    LoadEntries();
+                }
+            };
         }
 
-        private void btnOdeme_Click(object sender, EventArgs e)
+
+        private void LoadEntries()
         {
+            string qry = @"
+        SELECT a.masaAdi, a.garsonAdi, a.siparisTuru, d.detayID, u.UrunAdi, d.proID, d.adet, d.fiyat, d.tumtoplam
+        FROM masaDetay d
+        INNER JOIN Anamasa a ON d.AnaID = a.AnaID
+        INNER JOIN Urunler u ON d.proID = u.UrunID
+        WHERE d.AnaID = @AnaID";
 
+            SqlCommand cmd2 = new SqlCommand(qry, MainClass.con);
+            cmd2.Parameters.AddWithValue("@AnaID", id); // Ana sipariş ID'sini filtreliyoruz
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+            da2.Fill(dt2);
+
+            if (dt2.Rows[0]["siparisTuru"].ToString() == "Delivery")
+            {
+                btnTeslimat.Checked = true;
+                lblGarson.Visible = false;
+                lblMasa.Visible = false;
+            }
+            else if (dt2.Rows[0]["siparisTuru"].ToString() == "Take away")
+            {
+                btnPaket.Checked = true;
+                lblGarson.Visible = false;
+                lblMasa.Visible = false;
+            }
+            else
+            {
+                btnMasa.Checked = true;
+                lblGarson.Visible = true;
+                lblMasa.Visible = true;
+            }
+
+
+            guna2DataGridView1.Rows.Clear();
+
+            foreach (DataRow item in dt2.Rows)
+            {
+                lblMasa.Text = item["masaAdi"].ToString();
+                lblGarson.Text = item["garsonAdi"].ToString();
+                // Her bir sütun için verileri çekiyoruz
+                string detailID = item["detayID"].ToString();
+                string urunAdi = item["UrunAdi"].ToString(); // Ürün adı (proName)
+                string proID = item["proID"].ToString();
+                string qty = item["adet"].ToString(); // Miktar
+                string price = item["fiyat"].ToString(); // Birim fiyat
+                string amount = item["tumtoplam"].ToString(); // Toplam fiyat
+
+                // DataGridView'e ekleme
+                object[] obj = { guna2DataGridView1.Rows.Count + 1, detailID, proID, urunAdi, qty, price, amount };
+                guna2DataGridView1.Rows.Add(obj);
+            }
+            GetTotal();
         }
+
+        private void btnOdeme_Click_1(object sender, EventArgs e)
+        {
+            frmCheckout frm = new frmCheckout
+            {
+                MainID = id, // İşlem ID'sini aktar
+                amt = Convert.ToDouble(lblToplam.Text) // Toplam tutarı aktar
+            };
+
+            try
+            {
+                MainClass.BlurBackground(frm); // BlurBackground çağrısı
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // İşlem sonrası alanları sıfırla
+            AnaID = 0;
+            guna2DataGridView1.Rows.Clear();
+            lblMasa.Text = "";
+            lblGarson.Text = "";
+            lblMasa.Visible = false;
+            lblGarson.Visible = false;
+            lblToplam.Text = "00";
+        }
+
+
     }
 }
+
+
+
+/*frmCheckout frm = new frmCheckout
+{
+    MainID = id, // İşlem ID'sini aktar
+    amt = Convert.ToDouble(lblToplam.Text) // Toplam tutarı aktar
+};
+
+try
+{
+    MainClass.BlurBackground(frm); // BlurBackground çağrısı
+}
+catch (Exception ex)
+{
+    MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    return;
+}
+
+// İşlem sonrası alanları sıfırla
+AnaID = 0;
+guna2DataGridView1.Rows.Clear();
+lblMasa.Text = "";
+lblGarson.Text = "";
+lblMasa.Visible = false;
+lblGarson.Visible = false;
+lblToplam.Text = "00";*/

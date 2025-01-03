@@ -60,6 +60,7 @@
             this.btnKaydet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnKaydet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnKaydet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
             // 
             // btnCikis
             // 
@@ -142,6 +143,7 @@
             this.txtAlinanTutar.SelectedText = "";
             this.txtAlinanTutar.Size = new System.Drawing.Size(218, 36);
             this.txtAlinanTutar.TabIndex = 8;
+            this.txtAlinanTutar.TextChanged += new System.EventHandler(this.txtAlinanTutar_TextChanged);
             // 
             // label3
             // 
@@ -195,6 +197,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmCheckout";
             this.Text = "frmCheckout";
+            this.Load += new System.EventHandler(this.frmCheckout_Load);
             this.Controls.SetChildIndex(this.guna2Panel1, 0);
             this.Controls.SetChildIndex(this.guna2Panel2, 0);
             this.Controls.SetChildIndex(this.label2, 0);

@@ -154,9 +154,42 @@ namespace Restoran_Siparis_Uygulamasi
             cb.SelectedIndex = -1;
         }
 
-        internal static void BlurBackground(frmBillList frmBillList)
+        internal static void BlurBackground(Form frm)
         {
-            throw new NotImplementedException();
+            // Overlay Form Oluşturma
+            Form overlayForm = new Form
+            {
+                FormBorderStyle = FormBorderStyle.None,
+                Opacity = 0.5,
+                BackColor = Color.Black,
+                Size = Screen.PrimaryScreen.Bounds.Size,
+                StartPosition = FormStartPosition.Manual,
+                Location = Screen.PrimaryScreen.Bounds.Location,
+                TopMost = true,
+                ShowInTaskbar = false
+            };
+
+            try
+            {
+                overlayForm.Show(); // Overlay'i göster
+                Application.DoEvents(); // Ekranı güncellemek için
+
+                frm.TopMost = true; // Ana formu overlay'in üstünde göstermek için
+                frm.Show(); // Modal olmayan şekilde formu aç
+                frm.FormClosed += (s, e) => overlayForm.Close(); // Form kapanınca overlay'i kapat
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                overlayForm.Dispose(); // Kaynakları temizle
+            }
         }
+
+
+
+
     }
 }
