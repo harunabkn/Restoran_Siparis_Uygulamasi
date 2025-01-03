@@ -162,6 +162,7 @@
             "Garson",
             "Temizlikçi",
             "Müdür",
+            "Kurye",
             "Diğer"});
             this.cbPozisyon.Location = new System.Drawing.Point(24, 229);
             this.cbPozisyon.Name = "cbPozisyon";

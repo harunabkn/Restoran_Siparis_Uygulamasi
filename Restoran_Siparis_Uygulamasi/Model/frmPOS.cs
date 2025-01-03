@@ -486,7 +486,10 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblToplam.Text = "00";
         }
 
+        private void btnTut_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 
