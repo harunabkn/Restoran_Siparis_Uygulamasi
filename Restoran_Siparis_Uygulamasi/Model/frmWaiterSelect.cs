@@ -32,7 +32,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void frmWaiterSelect_Load(object sender, EventArgs e)
         {
-            string qry = "Select * from Personel where pRol Like 'Garson'";
+            string qry = "Select * from Personel where pRol = 'Garson'";
             SqlCommand cmd = new SqlCommand(qry, MainClass.con);
             DataTable veri = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);

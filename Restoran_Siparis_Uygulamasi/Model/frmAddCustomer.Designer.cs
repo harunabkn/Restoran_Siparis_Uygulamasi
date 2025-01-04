@@ -33,12 +33,12 @@
             this.txtIsım = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -59,8 +59,9 @@
             "Garson",
             "Temizlikçi",
             "Müdür",
+            "Kurye",
             "Diğer"});
-            this.cbKurye.Location = new System.Drawing.Point(13, 26);
+            this.cbKurye.Location = new System.Drawing.Point(13, 33);
             this.cbKurye.Name = "cbKurye";
             this.cbKurye.Size = new System.Drawing.Size(218, 36);
             this.cbKurye.TabIndex = 1;
@@ -71,7 +72,7 @@
             this.lblKurye.AutoSize = true;
             this.lblKurye.Location = new System.Drawing.Point(13, 10);
             this.lblKurye.Name = "lblKurye";
-            this.lblKurye.Size = new System.Drawing.Size(34, 13);
+            this.lblKurye.Size = new System.Drawing.Size(49, 20);
             this.lblKurye.TabIndex = 4;
             this.lblKurye.Text = "Kurye";
             // 
@@ -87,7 +88,7 @@
             this.txtIsım.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIsım.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtIsım.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIsım.Location = new System.Drawing.Point(13, 81);
+            this.txtIsım.Location = new System.Drawing.Point(13, 95);
             this.txtIsım.Name = "txtIsım";
             this.txtIsım.PasswordChar = '\0';
             this.txtIsım.PlaceholderText = "";
@@ -98,9 +99,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 65);
+            this.label2.Location = new System.Drawing.Point(13, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "İsim";
             // 
@@ -115,6 +116,16 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(469, 100);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(412, 13);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 1;
             // 
             // label1
             // 
@@ -159,9 +170,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 120);
+            this.label3.Location = new System.Drawing.Point(13, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Telefon";
             // 
@@ -177,23 +188,13 @@
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhone.Location = new System.Drawing.Point(13, 136);
+            this.txtPhone.Location = new System.Drawing.Point(237, 13);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(218, 36);
             this.txtPhone.TabIndex = 3;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(412, 13);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 1;
             // 
             // frmAddCustomer
             // 

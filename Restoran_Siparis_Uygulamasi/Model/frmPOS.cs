@@ -27,7 +27,10 @@ namespace Restoran_Siparis_Uygulamasi.Model
         }
 
         public int AnaID = 0;
-        public string SiparisTuru;
+        public string SiparisTuru = "";
+        public int kuryeID = 0;
+        public string musteriAdi = "";
+        public string musteriTelefon = "";
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
@@ -252,14 +255,34 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void btnTeslimat_Click(object sender, EventArgs e)
         {
-
-            lblMasa.Text = "";
-            lblGarson.Text = "";
+            lblMasa.Text = "";       // Masa bilgisi sıfırla
+            lblGarson.Text = "";     // Garson bilgisi sıfırla
             lblMasa.Visible = false;
             lblGarson.Visible = false;
+
             SiparisTuru = "Teslimat";
 
+            // Teslimat formunu aç
+            frmAddCustomer frm = new frmAddCustomer
+            {
+                masaID = AnaID,
+                siparisTuru = SiparisTuru
+            };
+
+            frm.ShowDialog(); // Formu modal olarak aç
+
+            // Form kapandıktan sonra bilgileri kontrol et
+            if (!string.IsNullOrEmpty(frm.txtIsım.Text) && !string.IsNullOrEmpty(frm.txtPhone.Text))
+            {
+                lblKuryeIsmı.Text = $"Müşteri Adı: {frm.txtIsım.Text} " +
+                                    $"Telefon: {frm.txtPhone.Text} " +
+                                    $"Kurye: {frm.cbKurye.Text}";
+                lblKuryeIsmı.Visible = true; // Bilgileri görünür yap
+                musteriAdi = frm.txtIsım.Text;
+                musteriTelefon = frm.txtPhone.Text;
+            }
         }
+
 
         private void btnPaket_Click(object sender, EventArgs e)
         {
@@ -268,12 +291,31 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblMasa.Visible = false;
             lblGarson.Visible = false;
             SiparisTuru = "Paket";
+
+            frmAddCustomer frm = new frmAddCustomer
+            {
+                masaID = AnaID,
+                siparisTuru = SiparisTuru
+            };
+
+            frm.ShowDialog();
+            
+            if(!string.IsNullOrEmpty(frm.txtIsım.Text) && !string.IsNullOrEmpty(frm.txtPhone.Text))
+            {
+                kuryeID = frm.kuryeID;
+                lblKuryeIsmı.Text = "Müşteri Adı: " + frm.txtIsım.Text + " Telefon: " + frm.txtPhone.Text;
+                lblKuryeIsmı.Visible = true;
+                musteriAdi = frm.txtIsım.Text;
+                musteriTelefon = frm.txtPhone.Text;
+
+            }
         }
 
         private void btnMasa_Click(object sender, EventArgs e)
         {
 
-            SiparisTuru = "Din In";
+            SiparisTuru = "Masa Seç";
+            lblKuryeIsmı.Visible = false;
             // Masa seçimi
             frmTableSelect frm = new frmTableSelect();
             frm.ShowDialog(); // Masa seçim formunu göster
@@ -314,9 +356,8 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             if (AnaID == 0) // Insert işlemi
             {
-                qry1 = @"Insert into Anamasa (mTarih, mZaman, masaAdi, garsonAdi, durum, siparisTuru, toplam, kabul, degistir) 
-                 Values (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir);
-                 Select SCOPE_IDENTITY();";
+                qry1 = @"Insert into Anamasa Values (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir,@kuryeID,@musAdi,@musTelefon);
+                            Select SCOPE_IDENTITY()";
             }
             else // Update işlemi
             {
@@ -336,6 +377,9 @@ namespace Restoran_Siparis_Uygulamasi.Model
             cmd.Parameters.AddWithValue("@toplam", Convert.ToDouble(lblToplam.Text));
             cmd.Parameters.AddWithValue("@kabul", 0.0);
             cmd.Parameters.AddWithValue("@degistir", 0.0);
+            cmd.Parameters.AddWithValue("@kuryeID", kuryeID);
+            cmd.Parameters.AddWithValue("@musAdi", musteriAdi);
+            cmd.Parameters.AddWithValue("@musTelefon", musteriTelefon);
 
             if (MainClass.con.State == ConnectionState.Closed) MainClass.con.Open();
 
@@ -384,6 +428,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblMasa.Text = "";
             lblGarson.Text = "";
             lblToplam.Text = "00";
+            lblKuryeIsmı.Text = "";
         }
         public int id = 0;
 
@@ -396,6 +441,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 if (frm.mainID > 0)
                 {
                     id = frm.mainID;
+                    AnaID = frm.mainID;
                     LoadEntries();
                 }
             };
@@ -488,7 +534,92 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void btnTut_Click(object sender, EventArgs e)
         {
+            string qry1 = "";
+            string qry2 = "";
 
+            int detayID = 0;
+
+            if(SiparisTuru == "")
+            {
+                guna2MessageDialog1.Show("Lütfen sipariş türünü seçin");
+                return;
+            }
+
+            if (AnaID == 0) // Insert işlemi
+            {
+                qry1 = @"Insert into Anamasa Values (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir,@kuryeID,@musAdi,@musTelefon);
+                            Select SCOPE_IDENTITY()";
+            }
+            else // Update işlemi
+            {
+                qry1 = @"Update Anamasa 
+                 Set durum = @durum, toplam = @toplam, kabul = @kabul, degistir = @degistir 
+                 Where AnaID = @AnaID;";
+            }
+
+            SqlCommand cmd = new SqlCommand(qry1, MainClass.con);
+            cmd.Parameters.AddWithValue("@AnaID", AnaID);
+            cmd.Parameters.AddWithValue("@mTarih", DateTime.Now.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@mZaman", DateTime.Now.ToString("HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@masaAdi", lblMasa.Text);
+            cmd.Parameters.AddWithValue("@garsonAdi", lblGarson.Text);
+            cmd.Parameters.AddWithValue("@durum", "Hold");
+            cmd.Parameters.AddWithValue("@siparisTuru", SiparisTuru);
+            cmd.Parameters.AddWithValue("@toplam", Convert.ToDouble(lblToplam.Text));
+            cmd.Parameters.AddWithValue("@kabul", 0.0);
+            cmd.Parameters.AddWithValue("@degistir", 0.0);
+            cmd.Parameters.AddWithValue("@kuryeID", kuryeID);
+            cmd.Parameters.AddWithValue("@musAdi", musteriAdi);
+            cmd.Parameters.AddWithValue("@musTelefon", musteriTelefon);
+
+            if (MainClass.con.State == ConnectionState.Closed) MainClass.con.Open();
+
+            if (AnaID == 0)
+            {
+                AnaID = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            else
+            {
+                cmd.ExecuteNonQuery();
+            }
+
+            if (MainClass.con.State == ConnectionState.Open) MainClass.con.Close();
+
+            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
+            {
+                detayID = row.Cells["dgvid"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["dgvid"].Value);
+
+                if (detayID == 0) // Insert işlemi
+                {
+                    qry2 = @"Insert into masaDetay (AnaID, proID, adet, fiyat, tumtoplam) 
+                     Values (@AnaID, @proID, @adet, @fiyat, @tumtoplam);";
+                }
+                else // Update işlemi
+                {
+                    qry2 = @"Update masaDetay 
+                     Set proID = @proID, adet = @adet, fiyat = @fiyat, tumtoplam = @tumtoplam 
+                     Where detayID = @detayID;";
+                }
+
+                SqlCommand cmd2 = new SqlCommand(qry2, MainClass.con);
+                cmd2.Parameters.AddWithValue("@detayID", detayID);
+                cmd2.Parameters.AddWithValue("@AnaID", AnaID);
+                cmd2.Parameters.AddWithValue("@proID", Convert.ToInt32(row.Cells["dgvproID"].Value));
+                cmd2.Parameters.AddWithValue("@adet", Convert.ToInt32(row.Cells["dgvQty"].Value));
+                cmd2.Parameters.AddWithValue("@fiyat", Convert.ToDouble(row.Cells["dgvPrice"].Value));
+                cmd2.Parameters.AddWithValue("@tumtoplam", Convert.ToDouble(row.Cells["dgvAmount"].Value));
+
+                if (MainClass.con.State == ConnectionState.Closed) MainClass.con.Open();
+                cmd2.ExecuteNonQuery();
+                if (MainClass.con.State == ConnectionState.Open) MainClass.con.Close();
+            }
+
+            guna2MessageDialog1.Show("Başarıyla Kaydedildi");
+            guna2DataGridView1.Rows.Clear();
+            lblMasa.Text = "";
+            lblGarson.Text = "";
+            lblToplam.Text = "00";
+            lblKuryeIsmı.Text = "";
         }
     }
 }

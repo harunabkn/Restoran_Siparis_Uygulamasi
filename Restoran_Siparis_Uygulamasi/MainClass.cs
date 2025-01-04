@@ -139,20 +139,21 @@ namespace Restoran_Siparis_Uygulamasi
         }
 
 
-        public static void CBFill(string qry , ComboBox cb)
+        public static void CBFill(string qry, ComboBox cb)
         {
-            SqlCommand cmd = new SqlCommand(qry, con);
-            cmd.CommandType = CommandType.Text;
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable veri = new DataTable();
-            adapter.Fill(veri);
+            using (SqlCommand cmd = new SqlCommand(qry, MainClass.con))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable veri = new DataTable();
+                adapter.Fill(veri);
 
-
-            cb.DisplayMember = "name";
-            cb.ValueMember = "id";
-            cb.DataSource = veri;
-            cb.SelectedIndex = -1;
+                cb.DataSource = veri;           // Veriyi ComboBox'a bağla
+                cb.DisplayMember = "Adı";       // Görüntülenecek sütun adı (Alias: 'Adı')
+                cb.ValueMember = "id";          // Seçilen değerin tutulacağı sütun (Alias: 'id')
+                cb.SelectedIndex = -1;          // Varsayılan olarak hiçbir şey seçilmesin
+            }
         }
+
 
         internal static void BlurBackground(Form frm)
         {
@@ -193,3 +194,19 @@ namespace Restoran_Siparis_Uygulamasi
 
     }
 }
+
+
+
+
+
+/*SqlCommand cmd = new SqlCommand(qry, con);
+cmd.CommandType = CommandType.Text;
+SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+DataTable veri = new DataTable();
+adapter.Fill(veri);
+
+
+cb.DisplayMember = "name";
+cb.ValueMember = "id";
+cb.DataSource = veri;
+cb.SelectedIndex = -1;*/

@@ -20,19 +20,36 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void cbKurye_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbKurye.SelectedValue != null && int.TryParse(cbKurye.SelectedValue.ToString(), out int selectedKuryeID))
+            {
+                kuryeID = selectedKuryeID;
+            }
+            else
+            {
+                Console.WriteLine("SelectedValue null veya dönüştürülemiyor.");
+            }
         }
 
-        public string orderType = "";
-        public int driverID = 0;
-        public int mainID = 0;
+
+        public string siparisTuru = "";
+        public int kuryeID = 0;
+        public string musAdi = "";
+        public int masaID = 0;
 
         private void frmAddCustomer_Load(object sender, EventArgs e)
         {
-            if (orderType == "Paket")
+            if (siparisTuru == "Paket")
             {
                 lblKurye.Visible = false;
                 cbKurye.Visible = false;
+            }
+
+            string qry = "Select personelID 'id',pAdi 'Adı' from Personel where pRol = 'Kurye'";
+            MainClass.CBFill(qry, cbKurye);
+
+            if(masaID > 0)
+            {
+                cbKurye.SelectedValue = kuryeID;
             }
         }
     }
