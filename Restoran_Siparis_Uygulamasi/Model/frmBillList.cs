@@ -66,6 +66,11 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 this.Close();
 
             }
+
+            if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
+            {
+                //Fatura yazdır
+            }
         }
     }
 }

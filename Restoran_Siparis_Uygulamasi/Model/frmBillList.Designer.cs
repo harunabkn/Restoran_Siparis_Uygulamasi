@@ -239,12 +239,11 @@
             this.dgvdel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvdel.FillWeight = 50F;
             this.dgvdel.HeaderText = "";
-            this.dgvdel.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_full_recycle_bin_25;
+            this.dgvdel.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_print_25;
             this.dgvdel.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dgvdel.MinimumWidth = 50;
             this.dgvdel.Name = "dgvdel";
             this.dgvdel.ReadOnly = true;
-            this.dgvdel.Visible = false;
             this.dgvdel.Width = 50;
             // 
             // frmBillList
