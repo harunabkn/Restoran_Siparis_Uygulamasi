@@ -32,8 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCikis = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblGarson = new System.Windows.Forms.Label();
             this.lblMasa = new System.Windows.Forms.Label();
+            this.btnMasa = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnPaket = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnTeslimat = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnFis = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnFatura = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnTut = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnYeni = new Guna.UI2.WinForms.Guna2TileButton();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOdeme = new Guna.UI2.WinForms.Guna2Button();
@@ -42,6 +50,10 @@
             this.kategoriPaneli = new System.Windows.Forms.FlowLayoutPanel();
             this.urunPaneli = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.txtAra = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblKuryeIsmı = new System.Windows.Forms.Label();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvproID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,23 +61,11 @@
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtAra = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnCikis = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnMasa = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnPaket = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnTeslimat = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnFis = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnFatura = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnTut = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnYeni = new Guna.UI2.WinForms.Guna2TileButton();
-            this.lblKuryeIsmı = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -88,6 +88,21 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1087, 100);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCikis.BackColor = System.Drawing.Color.Transparent;
+            this.btnCikis.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_shutdown_100;
+            this.btnCikis.ImageRotate = 0F;
+            this.btnCikis.Location = new System.Drawing.Point(1013, 21);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(62, 64);
+            this.btnCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCikis.TabIndex = 2;
+            this.btnCikis.TabStop = false;
+            this.btnCikis.UseTransparentBackground = true;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
             // lblGarson
             // 
@@ -115,6 +130,163 @@
             this.lblMasa.Text = "Masa";
             this.lblMasa.Visible = false;
             this.lblMasa.Click += new System.EventHandler(this.lblMasa_Click);
+            // 
+            // btnMasa
+            // 
+            this.btnMasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnMasa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnMasa.BorderRadius = 10;
+            this.btnMasa.BorderThickness = 2;
+            this.btnMasa.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMasa.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnMasa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMasa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMasa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMasa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnMasa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMasa.ForeColor = System.Drawing.Color.White;
+            this.btnMasa.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_restaurant_table_100;
+            this.btnMasa.Location = new System.Drawing.Point(726, 12);
+            this.btnMasa.Name = "btnMasa";
+            this.btnMasa.Size = new System.Drawing.Size(78, 78);
+            this.btnMasa.TabIndex = 7;
+            this.btnMasa.Text = "Masa";
+            this.btnMasa.Click += new System.EventHandler(this.btnMasa_Click);
+            // 
+            // btnPaket
+            // 
+            this.btnPaket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnPaket.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnPaket.BorderRadius = 10;
+            this.btnPaket.BorderThickness = 2;
+            this.btnPaket.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnPaket.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnPaket.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaket.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPaket.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPaket.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPaket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnPaket.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPaket.ForeColor = System.Drawing.Color.White;
+            this.btnPaket.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_take_away_food_100;
+            this.btnPaket.Location = new System.Drawing.Point(642, 12);
+            this.btnPaket.Name = "btnPaket";
+            this.btnPaket.Size = new System.Drawing.Size(78, 78);
+            this.btnPaket.TabIndex = 6;
+            this.btnPaket.Text = "Paket";
+            this.btnPaket.Click += new System.EventHandler(this.btnPaket_Click);
+            // 
+            // btnTeslimat
+            // 
+            this.btnTeslimat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnTeslimat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnTeslimat.BorderRadius = 10;
+            this.btnTeslimat.BorderThickness = 2;
+            this.btnTeslimat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnTeslimat.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnTeslimat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTeslimat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTeslimat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTeslimat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTeslimat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnTeslimat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTeslimat.ForeColor = System.Drawing.Color.White;
+            this.btnTeslimat.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_delivery_100__2_;
+            this.btnTeslimat.Location = new System.Drawing.Point(558, 12);
+            this.btnTeslimat.Name = "btnTeslimat";
+            this.btnTeslimat.Size = new System.Drawing.Size(78, 78);
+            this.btnTeslimat.TabIndex = 5;
+            this.btnTeslimat.Text = "Teslimat";
+            this.btnTeslimat.Click += new System.EventHandler(this.btnTeslimat_Click);
+            // 
+            // btnFis
+            // 
+            this.btnFis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnFis.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnFis.BorderRadius = 10;
+            this.btnFis.BorderThickness = 2;
+            this.btnFis.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnFis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFis.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnFis.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFis.ForeColor = System.Drawing.Color.White;
+            this.btnFis.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_ticket_100__1_;
+            this.btnFis.Location = new System.Drawing.Point(474, 12);
+            this.btnFis.Name = "btnFis";
+            this.btnFis.Size = new System.Drawing.Size(78, 78);
+            this.btnFis.TabIndex = 4;
+            this.btnFis.Text = "Fiş";
+            this.btnFis.Click += new System.EventHandler(this.btnFis_Click);
+            // 
+            // btnFatura
+            // 
+            this.btnFatura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnFatura.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnFatura.BorderRadius = 10;
+            this.btnFatura.BorderThickness = 2;
+            this.btnFatura.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnFatura.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFatura.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFatura.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFatura.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFatura.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnFatura.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFatura.ForeColor = System.Drawing.Color.White;
+            this.btnFatura.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_bill_100;
+            this.btnFatura.Location = new System.Drawing.Point(390, 12);
+            this.btnFatura.Name = "btnFatura";
+            this.btnFatura.Size = new System.Drawing.Size(78, 78);
+            this.btnFatura.TabIndex = 3;
+            this.btnFatura.Text = "Fatura";
+            this.btnFatura.Click += new System.EventHandler(this.btnFatura_Click);
+            // 
+            // btnTut
+            // 
+            this.btnTut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnTut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnTut.BorderRadius = 10;
+            this.btnTut.BorderThickness = 2;
+            this.btnTut.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnTut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnTut.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTut.ForeColor = System.Drawing.Color.White;
+            this.btnTut.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_hand_100;
+            this.btnTut.Location = new System.Drawing.Point(306, 12);
+            this.btnTut.Name = "btnTut";
+            this.btnTut.Size = new System.Drawing.Size(78, 78);
+            this.btnTut.TabIndex = 2;
+            this.btnTut.Text = "Tut";
+            this.btnTut.Click += new System.EventHandler(this.btnTut_Click);
+            // 
+            // btnYeni
+            // 
+            this.btnYeni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnYeni.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnYeni.BorderRadius = 10;
+            this.btnYeni.BorderThickness = 2;
+            this.btnYeni.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
+            this.btnYeni.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnYeni.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnYeni.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnYeni.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnYeni.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
+            this.btnYeni.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnYeni.ForeColor = System.Drawing.Color.White;
+            this.btnYeni.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_new_ticket_100;
+            this.btnYeni.Location = new System.Drawing.Point(222, 12);
+            this.btnYeni.Name = "btnYeni";
+            this.btnYeni.Size = new System.Drawing.Size(78, 78);
+            this.btnYeni.TabIndex = 1;
+            this.btnYeni.Text = "Yeni";
+            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
             // 
             // label1
             // 
@@ -278,67 +450,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
             // 
-            // dgvSno
-            // 
-            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvSno.FillWeight = 70F;
-            this.dgvSno.HeaderText = "Sr#";
-            this.dgvSno.MinimumWidth = 70;
-            this.dgvSno.Name = "dgvSno";
-            this.dgvSno.ReadOnly = true;
-            this.dgvSno.Width = 70;
-            // 
-            // dgvid
-            // 
-            this.dgvid.HeaderText = "id";
-            this.dgvid.Name = "dgvid";
-            this.dgvid.ReadOnly = true;
-            this.dgvid.Visible = false;
-            // 
-            // dgvproID
-            // 
-            this.dgvproID.HeaderText = "ProductID";
-            this.dgvproID.Name = "dgvproID";
-            this.dgvproID.ReadOnly = true;
-            this.dgvproID.Visible = false;
-            // 
-            // dgvName
-            // 
-            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvName.HeaderText = "Name";
-            this.dgvName.Name = "dgvName";
-            this.dgvName.ReadOnly = true;
-            // 
-            // dgvQty
-            // 
-            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvQty.FillWeight = 30F;
-            this.dgvQty.HeaderText = "Qty";
-            this.dgvQty.MinimumWidth = 30;
-            this.dgvQty.Name = "dgvQty";
-            this.dgvQty.ReadOnly = true;
-            this.dgvQty.Width = 30;
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvPrice.FillWeight = 50F;
-            this.dgvPrice.HeaderText = "Price";
-            this.dgvPrice.MinimumWidth = 50;
-            this.dgvPrice.Name = "dgvPrice";
-            this.dgvPrice.ReadOnly = true;
-            this.dgvPrice.Width = 50;
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvAmount.FillWeight = 60F;
-            this.dgvAmount.HeaderText = "Amount";
-            this.dgvAmount.MinimumWidth = 60;
-            this.dgvAmount.Name = "dgvAmount";
-            this.dgvAmount.ReadOnly = true;
-            this.dgvAmount.Width = 60;
-            // 
             // guna2MessageDialog1
             // 
             this.guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
@@ -383,178 +494,6 @@
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
             // 
-            // btnCikis
-            // 
-            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCikis.BackColor = System.Drawing.Color.Transparent;
-            this.btnCikis.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_shutdown_100;
-            this.btnCikis.ImageRotate = 0F;
-            this.btnCikis.Location = new System.Drawing.Point(1013, 21);
-            this.btnCikis.Name = "btnCikis";
-            this.btnCikis.Size = new System.Drawing.Size(62, 64);
-            this.btnCikis.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCikis.TabIndex = 2;
-            this.btnCikis.TabStop = false;
-            this.btnCikis.UseTransparentBackground = true;
-            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
-            // 
-            // btnMasa
-            // 
-            this.btnMasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnMasa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnMasa.BorderRadius = 10;
-            this.btnMasa.BorderThickness = 2;
-            this.btnMasa.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnMasa.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnMasa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMasa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMasa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMasa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMasa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnMasa.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMasa.ForeColor = System.Drawing.Color.White;
-            this.btnMasa.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_restaurant_table_100;
-            this.btnMasa.Location = new System.Drawing.Point(726, 12);
-            this.btnMasa.Name = "btnMasa";
-            this.btnMasa.Size = new System.Drawing.Size(78, 78);
-            this.btnMasa.TabIndex = 7;
-            this.btnMasa.Text = "Masa";
-            this.btnMasa.Click += new System.EventHandler(this.btnMasa_Click);
-            // 
-            // btnPaket
-            // 
-            this.btnPaket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnPaket.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnPaket.BorderRadius = 10;
-            this.btnPaket.BorderThickness = 2;
-            this.btnPaket.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnPaket.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnPaket.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPaket.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPaket.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPaket.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPaket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnPaket.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPaket.ForeColor = System.Drawing.Color.White;
-            this.btnPaket.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_take_away_food_100;
-            this.btnPaket.Location = new System.Drawing.Point(642, 12);
-            this.btnPaket.Name = "btnPaket";
-            this.btnPaket.Size = new System.Drawing.Size(78, 78);
-            this.btnPaket.TabIndex = 6;
-            this.btnPaket.Text = "Paket";
-            this.btnPaket.Click += new System.EventHandler(this.btnPaket_Click);
-            // 
-            // btnTeslimat
-            // 
-            this.btnTeslimat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnTeslimat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnTeslimat.BorderRadius = 10;
-            this.btnTeslimat.BorderThickness = 2;
-            this.btnTeslimat.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnTeslimat.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnTeslimat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTeslimat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTeslimat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTeslimat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTeslimat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnTeslimat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTeslimat.ForeColor = System.Drawing.Color.White;
-            this.btnTeslimat.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_delivery_100__2_;
-            this.btnTeslimat.Location = new System.Drawing.Point(558, 12);
-            this.btnTeslimat.Name = "btnTeslimat";
-            this.btnTeslimat.Size = new System.Drawing.Size(78, 78);
-            this.btnTeslimat.TabIndex = 5;
-            this.btnTeslimat.Text = "Teslimat";
-            this.btnTeslimat.Click += new System.EventHandler(this.btnTeslimat_Click);
-            // 
-            // btnFis
-            // 
-            this.btnFis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnFis.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnFis.BorderRadius = 10;
-            this.btnFis.BorderThickness = 2;
-            this.btnFis.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnFis.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFis.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFis.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFis.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFis.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnFis.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFis.ForeColor = System.Drawing.Color.White;
-            this.btnFis.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_ticket_100__1_;
-            this.btnFis.Location = new System.Drawing.Point(474, 12);
-            this.btnFis.Name = "btnFis";
-            this.btnFis.Size = new System.Drawing.Size(78, 78);
-            this.btnFis.TabIndex = 4;
-            this.btnFis.Text = "Fiş";
-            this.btnFis.Click += new System.EventHandler(this.btnFis_Click);
-            // 
-            // btnFatura
-            // 
-            this.btnFatura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnFatura.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnFatura.BorderRadius = 10;
-            this.btnFatura.BorderThickness = 2;
-            this.btnFatura.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnFatura.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFatura.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFatura.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFatura.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFatura.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnFatura.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFatura.ForeColor = System.Drawing.Color.White;
-            this.btnFatura.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_bill_100;
-            this.btnFatura.Location = new System.Drawing.Point(390, 12);
-            this.btnFatura.Name = "btnFatura";
-            this.btnFatura.Size = new System.Drawing.Size(78, 78);
-            this.btnFatura.TabIndex = 3;
-            this.btnFatura.Text = "Fatura";
-            this.btnFatura.Click += new System.EventHandler(this.btnFatura_Click);
-            // 
-            // btnTut
-            // 
-            this.btnTut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnTut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnTut.BorderRadius = 10;
-            this.btnTut.BorderThickness = 2;
-            this.btnTut.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnTut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTut.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnTut.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTut.ForeColor = System.Drawing.Color.White;
-            this.btnTut.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_hand_100;
-            this.btnTut.Location = new System.Drawing.Point(306, 12);
-            this.btnTut.Name = "btnTut";
-            this.btnTut.Size = new System.Drawing.Size(78, 78);
-            this.btnTut.TabIndex = 2;
-            this.btnTut.Text = "Tut";
-            this.btnTut.Click += new System.EventHandler(this.btnTut_Click);
-            // 
-            // btnYeni
-            // 
-            this.btnYeni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnYeni.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnYeni.BorderRadius = 10;
-            this.btnYeni.BorderThickness = 2;
-            this.btnYeni.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnYeni.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnYeni.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnYeni.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnYeni.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnYeni.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnYeni.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnYeni.ForeColor = System.Drawing.Color.White;
-            this.btnYeni.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_new_ticket_100;
-            this.btnYeni.Location = new System.Drawing.Point(222, 12);
-            this.btnYeni.Name = "btnYeni";
-            this.btnYeni.Size = new System.Drawing.Size(78, 78);
-            this.btnYeni.TabIndex = 1;
-            this.btnYeni.Text = "Yeni";
-            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
-            // 
             // lblKuryeIsmı
             // 
             this.lblKuryeIsmı.AutoSize = true;
@@ -568,6 +507,67 @@
             this.lblKuryeIsmı.Text = "Masa";
             this.lblKuryeIsmı.Visible = false;
             this.lblKuryeIsmı.Click += new System.EventHandler(this.lblMasa_Click);
+            // 
+            // dgvSno
+            // 
+            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvSno.FillWeight = 70F;
+            this.dgvSno.HeaderText = "Sr#";
+            this.dgvSno.MinimumWidth = 70;
+            this.dgvSno.Name = "dgvSno";
+            this.dgvSno.ReadOnly = true;
+            this.dgvSno.Width = 70;
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "id";
+            this.dgvid.Name = "dgvid";
+            this.dgvid.ReadOnly = true;
+            this.dgvid.Visible = false;
+            // 
+            // dgvproID
+            // 
+            this.dgvproID.HeaderText = "ProductID";
+            this.dgvproID.Name = "dgvproID";
+            this.dgvproID.ReadOnly = true;
+            this.dgvproID.Visible = false;
+            // 
+            // dgvName
+            // 
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.HeaderText = "İsim";
+            this.dgvName.Name = "dgvName";
+            this.dgvName.ReadOnly = true;
+            // 
+            // dgvQty
+            // 
+            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvQty.FillWeight = 30F;
+            this.dgvQty.HeaderText = "Sayısı";
+            this.dgvQty.MinimumWidth = 30;
+            this.dgvQty.Name = "dgvQty";
+            this.dgvQty.ReadOnly = true;
+            this.dgvQty.Width = 30;
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvPrice.FillWeight = 50F;
+            this.dgvPrice.HeaderText = "Fiyat";
+            this.dgvPrice.MinimumWidth = 50;
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            this.dgvPrice.Width = 50;
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvAmount.FillWeight = 60F;
+            this.dgvAmount.HeaderText = "Tutar";
+            this.dgvAmount.MinimumWidth = 60;
+            this.dgvAmount.Name = "dgvAmount";
+            this.dgvAmount.ReadOnly = true;
+            this.dgvAmount.Width = 60;
             // 
             // frmPOS
             // 
@@ -590,11 +590,11 @@
             this.Load += new System.EventHandler(this.frmPOS_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,6 +622,9 @@
         public Guna.UI2.WinForms.Guna2TextBox txtAra;
         private System.Windows.Forms.Label lblToplam;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
+        public Guna.UI2.WinForms.Guna2Button btnOdeme;
+        private System.Windows.Forms.Label lblKuryeIsmı;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvproID;
@@ -629,8 +632,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvAmount;
-        private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
-        public Guna.UI2.WinForms.Guna2Button btnOdeme;
-        private System.Windows.Forms.Label lblKuryeIsmı;
     }
 }

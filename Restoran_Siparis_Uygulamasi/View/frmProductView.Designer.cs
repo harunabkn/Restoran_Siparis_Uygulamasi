@@ -162,13 +162,13 @@
             // 
             // dgvName
             // 
-            this.dgvName.HeaderText = "Name";
+            this.dgvName.HeaderText = "İsim";
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 
             // dgvPrice
             // 
-            this.dgvPrice.HeaderText = "Price";
+            this.dgvPrice.HeaderText = "Fiyat";
             this.dgvPrice.Name = "dgvPrice";
             this.dgvPrice.ReadOnly = true;
             // 
@@ -181,7 +181,7 @@
             // 
             // dgvcat
             // 
-            this.dgvcat.HeaderText = "Category";
+            this.dgvcat.HeaderText = "Kategori";
             this.dgvcat.Name = "dgvcat";
             this.dgvcat.ReadOnly = true;
             // 

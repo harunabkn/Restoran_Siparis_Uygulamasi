@@ -155,19 +155,19 @@
             // 
             // dgvName
             // 
-            this.dgvName.HeaderText = "Name";
+            this.dgvName.HeaderText = "İsim";
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 
             // dgvPhone
             // 
-            this.dgvPhone.HeaderText = "Phone";
+            this.dgvPhone.HeaderText = "Telefon";
             this.dgvPhone.Name = "dgvPhone";
             this.dgvPhone.ReadOnly = true;
             // 
             // dgvRole
             // 
-            this.dgvRole.HeaderText = "Role";
+            this.dgvRole.HeaderText = "Pozisyon";
             this.dgvRole.Name = "dgvRole";
             this.dgvRole.ReadOnly = true;
             // 
