@@ -64,11 +64,11 @@
             this.txtAra.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAra.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAra.Location = new System.Drawing.Point(764, 98);
+            this.txtAra.Location = new System.Drawing.Point(620, 88);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(761, 78);
+            this.label1.Location = new System.Drawing.Point(617, 68);
             // 
             // guna2DataGridView1
             // 
