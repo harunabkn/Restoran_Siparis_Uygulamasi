@@ -244,6 +244,7 @@
             this.dgvdel.MinimumWidth = 50;
             this.dgvdel.Name = "dgvdel";
             this.dgvdel.ReadOnly = true;
+            this.dgvdel.Visible = false;
             this.dgvdel.Width = 50;
             // 
             // frmBillList
