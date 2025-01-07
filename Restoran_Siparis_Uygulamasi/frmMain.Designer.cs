@@ -120,7 +120,7 @@
             this.btnOdeme.Name = "btnOdeme";
             this.btnOdeme.Size = new System.Drawing.Size(180, 45);
             this.btnOdeme.TabIndex = 7;
-            this.btnOdeme.Text = "Ödeme";
+            this.btnOdeme.Text = "Sipariş Al";
             this.btnOdeme.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOdeme.TextOffset = new System.Drawing.Point(20, 0);
             this.btnOdeme.Click += new System.EventHandler(this.btnOdeme_Click);
