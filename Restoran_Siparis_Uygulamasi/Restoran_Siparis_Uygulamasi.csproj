@@ -55,175 +55,175 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmHome.cs">
+    <Compile Include="frmRapor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHome.Designer.cs">
-      <DependentUpon>frmHome.cs</DependentUpon>
+    <Compile Include="frmRapor.Designer.cs">
+      <DependentUpon>frmRapor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="frmGiris.Designer.cs">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="frmAnasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmAnasayfa.Designer.cs">
+      <DependentUpon>frmAnasayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainClass.cs" />
-    <Compile Include="Model\frmTeslimatBilgi.cs">
+    <Compile Include="AnaSinif.cs" />
+    <Compile Include="Kalip\frmTeslimatBilgi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmTeslimatBilgi.Designer.cs">
+    <Compile Include="Kalip\frmTeslimatBilgi.Designer.cs">
       <DependentUpon>frmTeslimatBilgi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmFaturaListe.cs">
+    <Compile Include="Kalip\frmFaturaListe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmFaturaListe.Designer.cs">
+    <Compile Include="Kalip\frmFaturaListe.Designer.cs">
       <DependentUpon>frmFaturaListe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmKategoriEkle.cs">
+    <Compile Include="Kalip\frmKategoriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmKategoriEkle.Designer.cs">
+    <Compile Include="Kalip\frmKategoriEkle.Designer.cs">
       <DependentUpon>frmKategoriEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmOdeme.cs">
+    <Compile Include="Kalip\frmOdeme.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmOdeme.Designer.cs">
+    <Compile Include="Kalip\frmOdeme.Designer.cs">
       <DependentUpon>frmOdeme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmSiparis.cs">
+    <Compile Include="Kalip\frmSiparis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmSiparis.Designer.cs">
+    <Compile Include="Kalip\frmSiparis.Designer.cs">
       <DependentUpon>frmSiparis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmUrunEkle.cs">
+    <Compile Include="Kalip\frmUrunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmUrunEkle.Designer.cs">
+    <Compile Include="Kalip\frmUrunEkle.Designer.cs">
       <DependentUpon>frmUrunEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmPersonelEkle.cs">
+    <Compile Include="Kalip\frmPersonelEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmPersonelEkle.Designer.cs">
+    <Compile Include="Kalip\frmPersonelEkle.Designer.cs">
       <DependentUpon>frmPersonelEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmMasaEkle.cs">
+    <Compile Include="Kalip\frmMasaEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmMasaEkle.Designer.cs">
+    <Compile Include="Kalip\frmMasaEkle.Designer.cs">
       <DependentUpon>frmMasaEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmMasaSec.cs">
+    <Compile Include="Kalip\frmMasaSec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmMasaSec.Designer.cs">
+    <Compile Include="Kalip\frmMasaSec.Designer.cs">
       <DependentUpon>frmMasaSec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmGarsonSec.cs">
+    <Compile Include="Kalip\frmGarsonSec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmGarsonSec.Designer.cs">
+    <Compile Include="Kalip\frmGarsonSec.Designer.cs">
       <DependentUpon>frmGarsonSec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ucUrunSablon.cs">
+    <Compile Include="Kalip\ucUrunSablon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Model\ucUrunSablon.Designer.cs">
+    <Compile Include="Kalip\ucUrunSablon.Designer.cs">
       <DependentUpon>ucUrunSablon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sampleAdd.cs">
+    <Compile Include="ekleModeli.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sampleAdd.Designer.cs">
-      <DependentUpon>sampleAdd.cs</DependentUpon>
+    <Compile Include="ekleModeli.Designer.cs">
+      <DependentUpon>ekleModeli.cs</DependentUpon>
     </Compile>
-    <Compile Include="sampleView.cs">
+    <Compile Include="sayfaModeli.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sampleView.Designer.cs">
-      <DependentUpon>sampleView.cs</DependentUpon>
+    <Compile Include="sayfaModeli.Designer.cs">
+      <DependentUpon>sayfaModeli.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmCategoryView.cs">
+    <Compile Include="Sayfalar\frmKategoriSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmCategoryView.Designer.cs">
-      <DependentUpon>frmCategoryView.cs</DependentUpon>
+    <Compile Include="Sayfalar\frmKategoriSayfa.Designer.cs">
+      <DependentUpon>frmKategoriSayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmKitchenView.cs">
+    <Compile Include="Sayfalar\frmMutfakSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmKitchenView.Designer.cs">
-      <DependentUpon>frmKitchenView.cs</DependentUpon>
+    <Compile Include="Sayfalar\frmMutfakSayfa.Designer.cs">
+      <DependentUpon>frmMutfakSayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmProductView.cs">
+    <Compile Include="Sayfalar\frmUrunSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmProductView.Designer.cs">
-      <DependentUpon>frmProductView.cs</DependentUpon>
+    <Compile Include="Sayfalar\frmUrunSayfa.Designer.cs">
+      <DependentUpon>frmUrunSayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmStaffView.cs">
+    <Compile Include="Sayfalar\frmPersonelSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmStaffView.Designer.cs">
-      <DependentUpon>frmStaffView.cs</DependentUpon>
+    <Compile Include="Sayfalar\frmPersonelSayfa.Designer.cs">
+      <DependentUpon>frmPersonelSayfa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmTableView.cs">
+    <Compile Include="Sayfalar\frmMasaSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmTableView.Designer.cs">
-      <DependentUpon>frmTableView.cs</DependentUpon>
+    <Compile Include="Sayfalar\frmMasaSayfa.Designer.cs">
+      <DependentUpon>frmMasaSayfa.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmHome.resx">
-      <DependentUpon>frmHome.cs</DependentUpon>
+    <EmbeddedResource Include="frmRapor.resx">
+      <DependentUpon>frmRapor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="frmGiris.resx">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmAnasayfa.resx">
+      <DependentUpon>frmAnasayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmTeslimatBilgi.resx">
+    <EmbeddedResource Include="Kalip\frmTeslimatBilgi.resx">
       <DependentUpon>frmTeslimatBilgi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmFaturaListe.resx">
+    <EmbeddedResource Include="Kalip\frmFaturaListe.resx">
       <DependentUpon>frmFaturaListe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmKategoriEkle.resx">
+    <EmbeddedResource Include="Kalip\frmKategoriEkle.resx">
       <DependentUpon>frmKategoriEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmOdeme.resx">
+    <EmbeddedResource Include="Kalip\frmOdeme.resx">
       <DependentUpon>frmOdeme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmSiparis.resx">
+    <EmbeddedResource Include="Kalip\frmSiparis.resx">
       <DependentUpon>frmSiparis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmUrunEkle.resx">
+    <EmbeddedResource Include="Kalip\frmUrunEkle.resx">
       <DependentUpon>frmUrunEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmPersonelEkle.resx">
+    <EmbeddedResource Include="Kalip\frmPersonelEkle.resx">
       <DependentUpon>frmPersonelEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmMasaEkle.resx">
+    <EmbeddedResource Include="Kalip\frmMasaEkle.resx">
       <DependentUpon>frmMasaEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmMasaSec.resx">
+    <EmbeddedResource Include="Kalip\frmMasaSec.resx">
       <DependentUpon>frmMasaSec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmGarsonSec.resx">
+    <EmbeddedResource Include="Kalip\frmGarsonSec.resx">
       <DependentUpon>frmGarsonSec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\ucUrunSablon.resx">
+    <EmbeddedResource Include="Kalip\ucUrunSablon.resx">
       <DependentUpon>ucUrunSablon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -236,26 +236,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="sampleAdd.resx">
-      <DependentUpon>sampleAdd.cs</DependentUpon>
+    <EmbeddedResource Include="ekleModeli.resx">
+      <DependentUpon>ekleModeli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sampleView.resx">
-      <DependentUpon>sampleView.cs</DependentUpon>
+    <EmbeddedResource Include="sayfaModeli.resx">
+      <DependentUpon>sayfaModeli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmCategoryView.resx">
-      <DependentUpon>frmCategoryView.cs</DependentUpon>
+    <EmbeddedResource Include="Sayfalar\frmKategoriSayfa.resx">
+      <DependentUpon>frmKategoriSayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmKitchenView.resx">
-      <DependentUpon>frmKitchenView.cs</DependentUpon>
+    <EmbeddedResource Include="Sayfalar\frmMutfakSayfa.resx">
+      <DependentUpon>frmMutfakSayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmProductView.resx">
-      <DependentUpon>frmProductView.cs</DependentUpon>
+    <EmbeddedResource Include="Sayfalar\frmUrunSayfa.resx">
+      <DependentUpon>frmUrunSayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmStaffView.resx">
-      <DependentUpon>frmStaffView.cs</DependentUpon>
+    <EmbeddedResource Include="Sayfalar\frmPersonelSayfa.resx">
+      <DependentUpon>frmPersonelSayfa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmTableView.resx">
-      <DependentUpon>frmTableView.cs</DependentUpon>
+    <EmbeddedResource Include="Sayfalar\frmMasaSayfa.resx">
+      <DependentUpon>frmMasaSayfa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -379,9 +379,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-print-25.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-report-100.png" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-100 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

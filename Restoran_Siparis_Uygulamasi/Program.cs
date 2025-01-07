@@ -16,7 +16,7 @@ namespace Restoran_Siparis_Uygulamasi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmGiris());
         }
     }
 }

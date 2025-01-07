@@ -313,6 +313,26 @@ namespace Restoran_Siparis_Uygulamasi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_100__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-100 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_restaurant_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-restaurant-50", resourceCulture);
