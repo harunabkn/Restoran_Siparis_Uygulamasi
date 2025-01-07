@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmTableAdd : sampleAdd
+    public partial class frmMasaEkle : sampleAdd
     {
-        public frmTableAdd()
+        public frmMasaEkle()
         {
             InitializeComponent();
         }

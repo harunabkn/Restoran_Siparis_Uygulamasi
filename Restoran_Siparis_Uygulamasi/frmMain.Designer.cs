@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAyarlar = new Guna.UI2.WinForms.Guna2Button();
             this.btnMutfak = new Guna.UI2.WinForms.Guna2Button();
             this.btnOdeme = new Guna.UI2.WinForms.Guna2Button();
             this.btnPersonel = new Guna.UI2.WinForms.Guna2Button();
@@ -52,7 +51,6 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.Controls.Add(this.btnAyarlar);
             this.guna2Panel1.Controls.Add(this.btnMutfak);
             this.guna2Panel1.Controls.Add(this.btnOdeme);
             this.guna2Panel1.Controls.Add(this.btnPersonel);
@@ -68,34 +66,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(227, 672);
             this.guna2Panel1.TabIndex = 0;
-            // 
-            // btnAyarlar
-            // 
-            this.btnAyarlar.AutoRoundedCorners = true;
-            this.btnAyarlar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(55)))), ((int)(((byte)(89)))));
-            this.btnAyarlar.BorderRadius = 21;
-            this.btnAyarlar.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnAyarlar.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(85)))), ((int)(((byte)(126)))));
-            this.btnAyarlar.CheckedState.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_installing_updates_52__1_;
-            this.btnAyarlar.CustomizableEdges.BottomRight = false;
-            this.btnAyarlar.CustomizableEdges.TopRight = false;
-            this.btnAyarlar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAyarlar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAyarlar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAyarlar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAyarlar.FillColor = System.Drawing.Color.Transparent;
-            this.btnAyarlar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAyarlar.ForeColor = System.Drawing.Color.White;
-            this.btnAyarlar.Image = global::Restoran_Siparis_Uygulamasi.Properties.Resources.icons8_installing_updates_52;
-            this.btnAyarlar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAyarlar.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnAyarlar.Location = new System.Drawing.Point(47, 542);
-            this.btnAyarlar.Name = "btnAyarlar";
-            this.btnAyarlar.Size = new System.Drawing.Size(180, 45);
-            this.btnAyarlar.TabIndex = 9;
-            this.btnAyarlar.Text = "Ayarlar";
-            this.btnAyarlar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAyarlar.TextOffset = new System.Drawing.Point(20, 0);
             // 
             // btnMutfak
             // 
@@ -150,7 +120,7 @@
             this.btnOdeme.Name = "btnOdeme";
             this.btnOdeme.Size = new System.Drawing.Size(180, 45);
             this.btnOdeme.TabIndex = 7;
-            this.btnOdeme.Text = "Ödeme";
+            this.btnOdeme.Text = "Sipariş Al";
             this.btnOdeme.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOdeme.TextOffset = new System.Drawing.Point(20, 0);
             this.btnOdeme.Click += new System.EventHandler(this.btnOdeme_Click);
@@ -429,7 +399,6 @@
         private Guna.UI2.WinForms.Guna2Button btnMasalar;
         private Guna.UI2.WinForms.Guna2Button btnUrunler;
         private Guna.UI2.WinForms.Guna2Button btnKategoriler;
-        private Guna.UI2.WinForms.Guna2Button btnAyarlar;
         private Guna.UI2.WinForms.Guna2Button btnMutfak;
         private Guna.UI2.WinForms.Guna2Button btnOdeme;
         private System.Windows.Forms.Label lblKullanici;

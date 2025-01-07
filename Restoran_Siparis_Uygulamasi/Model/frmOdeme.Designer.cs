@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.Model
 {
-    partial class frmCheckout
+    partial class frmOdeme
     {
         /// <summary>
         /// Required designer variable.

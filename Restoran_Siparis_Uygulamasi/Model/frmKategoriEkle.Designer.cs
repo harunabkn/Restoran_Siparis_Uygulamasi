@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.Model
 {
-    partial class frmCategoryAdd
+    partial class frmKategoriEkle
     {
         /// <summary>
         /// Required designer variable.

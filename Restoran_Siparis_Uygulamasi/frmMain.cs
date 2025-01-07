@@ -63,13 +63,15 @@ namespace Restoran_Siparis_Uygulamasi
 
         private void btnOdeme_Click(object sender, EventArgs e)
         {
-            frmPOS frm = new frmPOS();
+            frmSiparis frm = new frmSiparis();
             frm.Show();
         }
 
         private void btnPersonel_Click(object sender, EventArgs e)
         {
+
             AddControls(new frmStaffView());
+
         }
 
         private void btnUrunler_Click(object sender, EventArgs e)

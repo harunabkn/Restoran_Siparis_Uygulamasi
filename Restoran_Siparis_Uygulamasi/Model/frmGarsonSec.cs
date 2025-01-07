@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmWaiterSelect : Form
+    public partial class frmGarsonSec : Form
     {
-        public frmWaiterSelect()
+        public frmGarsonSec()
         {
             InitializeComponent();
             this.KeyDown += frmWaiterSelect_KeyDown; // KeyDown olayını burada bağla

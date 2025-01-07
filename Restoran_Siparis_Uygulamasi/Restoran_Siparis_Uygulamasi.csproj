@@ -87,71 +87,71 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="Model\frmAddCustomer.cs">
+    <Compile Include="Model\frmTeslimatBilgi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmAddCustomer.Designer.cs">
-      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    <Compile Include="Model\frmTeslimatBilgi.Designer.cs">
+      <DependentUpon>frmTeslimatBilgi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmBillList.cs">
+    <Compile Include="Model\frmFaturaListe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmBillList.Designer.cs">
-      <DependentUpon>frmBillList.cs</DependentUpon>
+    <Compile Include="Model\frmFaturaListe.Designer.cs">
+      <DependentUpon>frmFaturaListe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmCategoryAdd.cs">
+    <Compile Include="Model\frmKategoriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmCategoryAdd.Designer.cs">
-      <DependentUpon>frmCategoryAdd.cs</DependentUpon>
+    <Compile Include="Model\frmKategoriEkle.Designer.cs">
+      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmCheckout.cs">
+    <Compile Include="Model\frmOdeme.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmCheckout.Designer.cs">
-      <DependentUpon>frmCheckout.cs</DependentUpon>
+    <Compile Include="Model\frmOdeme.Designer.cs">
+      <DependentUpon>frmOdeme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmPOS.cs">
+    <Compile Include="Model\frmSiparis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmPOS.Designer.cs">
-      <DependentUpon>frmPOS.cs</DependentUpon>
+    <Compile Include="Model\frmSiparis.Designer.cs">
+      <DependentUpon>frmSiparis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmProductAdd.cs">
+    <Compile Include="Model\frmUrunEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmProductAdd.Designer.cs">
-      <DependentUpon>frmProductAdd.cs</DependentUpon>
+    <Compile Include="Model\frmUrunEkle.Designer.cs">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmStaffAdd.cs">
+    <Compile Include="Model\frmPersonelEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmStaffAdd.Designer.cs">
-      <DependentUpon>frmStaffAdd.cs</DependentUpon>
+    <Compile Include="Model\frmPersonelEkle.Designer.cs">
+      <DependentUpon>frmPersonelEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmTableAdd.cs">
+    <Compile Include="Model\frmMasaEkle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmTableAdd.Designer.cs">
-      <DependentUpon>frmTableAdd.cs</DependentUpon>
+    <Compile Include="Model\frmMasaEkle.Designer.cs">
+      <DependentUpon>frmMasaEkle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmTableSelect.cs">
+    <Compile Include="Model\frmMasaSec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmTableSelect.Designer.cs">
-      <DependentUpon>frmTableSelect.cs</DependentUpon>
+    <Compile Include="Model\frmMasaSec.Designer.cs">
+      <DependentUpon>frmMasaSec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\frmWaiterSelect.cs">
+    <Compile Include="Model\frmGarsonSec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\frmWaiterSelect.Designer.cs">
-      <DependentUpon>frmWaiterSelect.cs</DependentUpon>
+    <Compile Include="Model\frmGarsonSec.Designer.cs">
+      <DependentUpon>frmGarsonSec.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ucProduct.cs">
+    <Compile Include="Model\ucUrunSablon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Model\ucProduct.Designer.cs">
-      <DependentUpon>ucProduct.cs</DependentUpon>
+    <Compile Include="Model\ucUrunSablon.Designer.cs">
+      <DependentUpon>ucUrunSablon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,38 +206,38 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmAddCustomer.resx">
-      <DependentUpon>frmAddCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmTeslimatBilgi.resx">
+      <DependentUpon>frmTeslimatBilgi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmBillList.resx">
-      <DependentUpon>frmBillList.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmFaturaListe.resx">
+      <DependentUpon>frmFaturaListe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmCategoryAdd.resx">
-      <DependentUpon>frmCategoryAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmKategoriEkle.resx">
+      <DependentUpon>frmKategoriEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmCheckout.resx">
-      <DependentUpon>frmCheckout.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmOdeme.resx">
+      <DependentUpon>frmOdeme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmPOS.resx">
-      <DependentUpon>frmPOS.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmSiparis.resx">
+      <DependentUpon>frmSiparis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmProductAdd.resx">
-      <DependentUpon>frmProductAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmUrunEkle.resx">
+      <DependentUpon>frmUrunEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmStaffAdd.resx">
-      <DependentUpon>frmStaffAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmPersonelEkle.resx">
+      <DependentUpon>frmPersonelEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmTableAdd.resx">
-      <DependentUpon>frmTableAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmMasaEkle.resx">
+      <DependentUpon>frmMasaEkle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmTableSelect.resx">
-      <DependentUpon>frmTableSelect.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmMasaSec.resx">
+      <DependentUpon>frmMasaSec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\frmWaiterSelect.resx">
-      <DependentUpon>frmWaiterSelect.cs</DependentUpon>
+    <EmbeddedResource Include="Model\frmGarsonSec.resx">
+      <DependentUpon>frmGarsonSec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\ucProduct.resx">
-      <DependentUpon>ucProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Model\ucUrunSablon.resx">
+      <DependentUpon>ucUrunSablon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -392,9 +392,7 @@
   <ItemGroup>
     <None Include="Resources\icons8-print-25.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>

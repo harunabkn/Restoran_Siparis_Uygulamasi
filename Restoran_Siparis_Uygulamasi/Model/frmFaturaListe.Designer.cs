@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.Model
 {
-    partial class frmBillList
+    partial class frmFaturaListe
     {
         /// <summary>
         /// Required designer variable.
@@ -194,31 +194,31 @@
             // 
             // dgvtable
             // 
-            this.dgvtable.HeaderText = "Table";
+            this.dgvtable.HeaderText = "Masa";
             this.dgvtable.Name = "dgvtable";
             this.dgvtable.ReadOnly = true;
             // 
             // dgvWaiter
             // 
-            this.dgvWaiter.HeaderText = "Waiter";
+            this.dgvWaiter.HeaderText = "Garson";
             this.dgvWaiter.Name = "dgvWaiter";
             this.dgvWaiter.ReadOnly = true;
             // 
             // dgvType
             // 
-            this.dgvType.HeaderText = "Order Type";
+            this.dgvType.HeaderText = "Sipariş Türü";
             this.dgvType.Name = "dgvType";
             this.dgvType.ReadOnly = true;
             // 
             // dgvStatus
             // 
-            this.dgvStatus.HeaderText = "Status";
+            this.dgvStatus.HeaderText = "Durum";
             this.dgvStatus.Name = "dgvStatus";
             this.dgvStatus.ReadOnly = true;
             // 
             // dgvTotal
             // 
-            this.dgvTotal.HeaderText = "Total";
+            this.dgvTotal.HeaderText = "Toplam";
             this.dgvTotal.Name = "dgvTotal";
             this.dgvTotal.ReadOnly = true;
             // 
@@ -244,6 +244,7 @@
             this.dgvdel.MinimumWidth = 50;
             this.dgvdel.Name = "dgvdel";
             this.dgvdel.ReadOnly = true;
+            this.dgvdel.Visible = false;
             this.dgvdel.Width = 50;
             // 
             // frmBillList

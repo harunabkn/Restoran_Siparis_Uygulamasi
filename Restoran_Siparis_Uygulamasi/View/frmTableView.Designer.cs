@@ -146,7 +146,7 @@
             // 
             // dgvName
             // 
-            this.dgvName.HeaderText = "Name";
+            this.dgvName.HeaderText = "İsim";
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 

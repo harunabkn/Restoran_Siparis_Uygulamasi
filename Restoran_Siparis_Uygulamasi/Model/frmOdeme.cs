@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmCheckout : sampleAdd
+    public partial class frmOdeme : sampleAdd
     {
-        public frmCheckout()
+        public frmOdeme()
         {
             InitializeComponent();
         }
@@ -62,7 +62,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
                     MessageBox.Show("Fatura durumu başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Fatura listesini yenile
-                    frmBillList billList = Application.OpenForms.OfType<frmBillList>().FirstOrDefault();
+                    frmFaturaListe billList = Application.OpenForms.OfType<frmFaturaListe>().FirstOrDefault();
                     if (billList != null)
                     {
                         billList.LoadData(); // Mevcut verileri tekrar yükle

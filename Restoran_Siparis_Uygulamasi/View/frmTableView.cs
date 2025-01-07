@@ -15,7 +15,7 @@ namespace Restoran_Siparis_Uygulamasi.View
 {
     public partial class frmTableView : sampleView
     {
-        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
         public frmTableView()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace Restoran_Siparis_Uygulamasi.View
 
         public override void btnEkle_Click(object sender, EventArgs e)
         {
-            frmTableAdd frm = new frmTableAdd();
+            frmMasaEkle frm = new frmMasaEkle();
             frm.ShowDialog();
             GetData();
             MasaList();
@@ -74,7 +74,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                frmCategoryAdd frm = new frmCategoryAdd();
+                frmKategoriEkle frm = new frmKategoriEkle();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                 frm.ShowDialog();
