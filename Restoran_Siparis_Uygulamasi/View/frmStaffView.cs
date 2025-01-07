@@ -52,7 +52,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         }
         public override void btnEkle_Click(object sender, EventArgs e)
         {
-            frmStaffAdd frm = new frmStaffAdd();
+            frmPersonelEkle frm = new frmPersonelEkle();
             frm.ShowDialog();
             GetData();
             PersonelList();
@@ -80,7 +80,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                frmStaffAdd frm = new frmStaffAdd();
+                frmPersonelEkle frm = new frmPersonelEkle();
                 frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                 frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                 frm.txtTelefon.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvPhone"].Value);

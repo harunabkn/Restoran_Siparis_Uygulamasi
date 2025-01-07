@@ -11,9 +11,9 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmAddCustomer : Form
+    public partial class frmTeslimatBilgi : Form
     {
-        public frmAddCustomer()
+        public frmTeslimatBilgi()
         {
             InitializeComponent();
         }

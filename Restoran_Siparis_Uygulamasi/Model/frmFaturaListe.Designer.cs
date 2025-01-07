@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.Model
 {
-    partial class frmBillList
+    partial class frmFaturaListe
     {
         /// <summary>
         /// Required designer variable.

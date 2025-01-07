@@ -19,9 +19,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmPOS : Form
+    public partial class frmSiparis : Form
     {
-        public frmPOS()
+        public frmSiparis()
         {
             InitializeComponent();
         }
@@ -79,7 +79,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             foreach (var item in urunPaneli.Controls)
             {
-                var pro = (ucProduct)item;
+                var pro = (ucUrunSablon)item;
                 pro.Visible = pro.PCategory.ToLower().Contains(b.Text.Trim().ToLower());
             }
         }
@@ -99,7 +99,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void AddItems(string id, string proID, string name, string kategoriID, string uFiyat, Image uResim)
         {
-            var w = new ucProduct()
+            var w = new ucUrunSablon()
             {
                 PName = name,
                 PPrice = uFiyat,
@@ -112,7 +112,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             w.onSelect += (ss, ee) =>
             {
-                var wdg = (ucProduct)ss;
+                var wdg = (ucUrunSablon)ss;
 
                 foreach (DataGridViewRow item in guna2DataGridView1.Rows)
                 {
@@ -191,7 +191,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
         {
             foreach (var item in urunPaneli.Controls)
             {
-                var pro = (ucProduct)item;
+                var pro = (ucUrunSablon)item;
                 pro.Visible = pro.PName.ToLower().Contains(txtAra.Text.Trim().ToLower());
             }
         }
@@ -263,7 +263,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             SiparisTuru = "Teslimat";
 
             // Teslimat formunu aç
-            frmAddCustomer frm = new frmAddCustomer
+            frmTeslimatBilgi frm = new frmTeslimatBilgi
             {
                 masaID = AnaID,
                 siparisTuru = SiparisTuru
@@ -292,7 +292,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lblGarson.Visible = false;
             SiparisTuru = "Paket";
 
-            frmAddCustomer frm = new frmAddCustomer
+            frmTeslimatBilgi frm = new frmTeslimatBilgi
             {
                 masaID = AnaID,
                 siparisTuru = SiparisTuru
@@ -317,7 +317,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             SiparisTuru = "Masa Seç";
             lblKuryeIsmı.Visible = false;
             // Masa seçimi
-            frmTableSelect frm = new frmTableSelect();
+            frmMasaSec frm = new frmMasaSec();
             frm.ShowDialog(); // Masa seçim formunu göster
 
             if (!string.IsNullOrEmpty(frm.MasaAdi))
@@ -332,7 +332,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             }
 
             // Garson seçimi
-            frmWaiterSelect frm2 = new frmWaiterSelect();
+            frmGarsonSec frm2 = new frmGarsonSec();
             frm2.ShowDialog(); // Garson seçim formunu göster
 
             if (!string.IsNullOrEmpty(frm2.garsonAdi))
@@ -434,7 +434,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void btnFatura_Click(object sender, EventArgs e)
         {
-            frmBillList frm = new frmBillList();
+            frmFaturaListe frm = new frmFaturaListe();
             frm.Show(); // ShowDialog yerine Show kullan
             frm.FormClosed += (s, ev) =>
             {
@@ -506,7 +506,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         private void btnOdeme_Click_1(object sender, EventArgs e)
         {
-            frmCheckout frm = new frmCheckout
+            frmOdeme frm = new frmOdeme
             {
                 MainID = id, // İşlem ID'sini aktar
                 amt = Convert.ToDouble(lblToplam.Text) // Toplam tutarı aktar

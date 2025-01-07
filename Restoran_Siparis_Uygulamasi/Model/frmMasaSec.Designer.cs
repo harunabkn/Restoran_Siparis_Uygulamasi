@@ -1,6 +1,6 @@
 ﻿namespace Restoran_Siparis_Uygulamasi.Model
 {
-    partial class frmTableSelect
+    partial class frmMasaSec
     {
         /// <summary>
         /// Required designer variable.

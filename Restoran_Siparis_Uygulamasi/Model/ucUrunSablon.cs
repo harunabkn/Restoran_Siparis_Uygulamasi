@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace Restoran_Siparis_Uygulamasi.Model
 {
     
-    public partial class ucProduct : UserControl
+    public partial class ucUrunSablon : UserControl
     {
-        public ucProduct()
+        public ucUrunSablon()
         {
             InitializeComponent();
         }

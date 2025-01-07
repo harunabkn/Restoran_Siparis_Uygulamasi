@@ -63,7 +63,7 @@ namespace Restoran_Siparis_Uygulamasi
 
         private void btnOdeme_Click(object sender, EventArgs e)
         {
-            frmPOS frm = new frmPOS();
+            frmSiparis frm = new frmSiparis();
             frm.Show();
         }
 

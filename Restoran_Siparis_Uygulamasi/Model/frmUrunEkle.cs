@@ -15,9 +15,9 @@ using System.Xml.Linq;
 
 namespace Restoran_Siparis_Uygulamasi.Model
 {
-    public partial class frmProductAdd : sampleAdd
+    public partial class frmUrunEkle : sampleAdd
     {
-        public frmProductAdd()
+        public frmUrunEkle()
         {
             InitializeComponent();
         }

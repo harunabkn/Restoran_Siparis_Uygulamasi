@@ -52,7 +52,7 @@ namespace Restoran_Siparis_Uygulamasi.View
 
         public override void btnEkle_Click(object sender, EventArgs e)
         {
-            frmCategoryAdd frm = new frmCategoryAdd();
+            frmKategoriEkle frm = new frmKategoriEkle();
             frm.ShowDialog();
             GetData();
             CategoryList();
@@ -80,7 +80,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvedit")
             {
-                    frmCategoryAdd frm = new frmCategoryAdd();
+                    frmKategoriEkle frm = new frmKategoriEkle();
                     frm.id = Convert.ToInt32(guna2DataGridView1.CurrentRow.Cells["dgvid"].Value);
                     frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                     frm.ShowDialog();
