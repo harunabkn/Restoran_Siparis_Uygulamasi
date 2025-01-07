@@ -60,6 +60,7 @@
             this.btnKaydet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnKaydet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnKaydet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKaydet.Text = "ÖDEME";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click_1);
             // 
             // btnCikis
@@ -184,7 +185,7 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Para Üstü";
             // 
-            // frmCheckout
+            // frmOdeme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,7 +196,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtFaturaTutari);
             this.Controls.Add(this.label2);
-            this.Name = "frmCheckout";
+            this.Name = "frmOdeme";
             this.Text = "frmCheckout";
             this.Load += new System.EventHandler(this.frmCheckout_Load);
             this.Controls.SetChildIndex(this.guna2Panel1, 0);

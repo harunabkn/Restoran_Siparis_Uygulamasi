@@ -19,7 +19,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             InitializeComponent();
         }
-        private readonly string connectionString = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
 
         private void frmProductView_Load(object sender, EventArgs e)
@@ -35,8 +35,10 @@ namespace Restoran_Siparis_Uygulamasi.View
             lb.Items.Add(dgvName);
             lb.Items.Add(dgvPrice);
             lb.Items.Add(dgvcatID);
-            lb.Items.Add(dgvcat);
+            //lb.Items.Add(dgvcat);
             AnaSinif.LoadData(qry, guna2DataGridView1, lb);
+            /*DataGridViewImageColumn imageColumn = (DataGridViewImageColumn)guna2DataGridView1.Columns["ResimKolonu"];
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;*/
         }
 
         private void UrunList()

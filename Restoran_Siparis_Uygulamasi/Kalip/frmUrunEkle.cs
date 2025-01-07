@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,24 +25,40 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         public int id = 0;
         public int cID = 0;
+        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
 
         private void frmProductAdd_Load(object sender, EventArgs e)
         {
-            string qry = "select kategoriID 'id' , kategoryAdi 'name' from Kategori";
+            string qry = "SELECT kategoriID, kategoryAdi FROM Kategori";
 
-            AnaSinif.CBFill(qry,cbKat);
-
-            if(cID > 0)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                cbKat.SelectedValue = cID;
+                SqlDataAdapter da = new SqlDataAdapter(qry, connection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                // Yeni bir satır ekle: Boş seçim için
+                DataRow row = dt.NewRow();
+                row["kategoriID"] = 0; // Varsayılan bir ID (kullanılmayan bir ID)
+                row["kategoryAdi"] = "Seçiniz"; // Gösterilecek metin
+                dt.Rows.InsertAt(row, 0); // İlk sıraya ekle
+
+                // ComboBox'a veri bağlama
+                cbKat.DataSource = dt;
+                cbKat.DisplayMember = "kategoryAdi"; // Görüntülenecek değer
+                cbKat.ValueMember = "kategoriID";    // Seçilen değer
             }
 
-            if(id> 0)
+            // Güncelleme durumu için
+            if (cID > 0)
             {
-                ForUpdateLoadData();
+                cbKat.SelectedValue = cID; // Güncellenen kategori
             }
-            
+            else
+            {
+                cbKat.SelectedIndex = 0; // Varsayılan olarak "Seçiniz"
+            }
         }
 
 
@@ -121,6 +138,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 Byte[] imageArray = (byte[])(dt.Rows[0]["uresim"]);
                 byte[] imageByteArray = imageArray;
                 txtImage.Image = Image.FromStream(new MemoryStream(imageArray));
+                
             }
         }
 

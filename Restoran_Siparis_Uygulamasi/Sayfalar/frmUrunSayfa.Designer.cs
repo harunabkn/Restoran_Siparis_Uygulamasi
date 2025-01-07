@@ -155,6 +155,7 @@
             // 
             // dgvid
             // 
+            this.dgvid.DataPropertyName = "UrunID";
             this.dgvid.HeaderText = "id";
             this.dgvid.Name = "dgvid";
             this.dgvid.ReadOnly = true;
@@ -162,18 +163,21 @@
             // 
             // dgvName
             // 
+            this.dgvName.DataPropertyName = "UrunAdi";
             this.dgvName.HeaderText = "İsim";
             this.dgvName.Name = "dgvName";
             this.dgvName.ReadOnly = true;
             // 
             // dgvPrice
             // 
+            this.dgvPrice.DataPropertyName = "uFiyat";
             this.dgvPrice.HeaderText = "Fiyat";
             this.dgvPrice.Name = "dgvPrice";
             this.dgvPrice.ReadOnly = true;
             // 
             // dgvcatID
             // 
+            this.dgvcatID.DataPropertyName = "kategoriID";
             this.dgvcatID.HeaderText = "cID";
             this.dgvcatID.Name = "dgvcatID";
             this.dgvcatID.ReadOnly = true;
@@ -181,6 +185,7 @@
             // 
             // dgvcat
             // 
+            this.dgvcat.DataPropertyName = "kategoryAdi";
             this.dgvcat.HeaderText = "Kategori";
             this.dgvcat.Name = "dgvcat";
             this.dgvcat.ReadOnly = true;
@@ -209,13 +214,13 @@
             this.dgvdel.ReadOnly = true;
             this.dgvdel.Width = 50;
             // 
-            // frmProductView
+            // frmUrunSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 550);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Name = "frmProductView";
+            this.Name = "frmUrunSayfa";
             this.Text = "frmProductView";
             this.Load += new System.EventHandler(this.frmProductView_Load);
             this.Controls.SetChildIndex(this.txtAra, 0);

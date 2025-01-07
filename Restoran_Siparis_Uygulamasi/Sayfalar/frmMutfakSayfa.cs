@@ -22,7 +22,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         private void siparisAl()
         {
             flowLayoutPanel1.Controls.Clear();
-            string qry1 = @"SELECT * FROM Anamasa WHERE durum = 'Pending'";
+            string qry1 = @"SELECT * FROM Anamasa WHERE durum = 'Hazırlanıyor'";
             SqlCommand cmd1 = new SqlCommand(qry1, AnaSinif.con);
             DataTable dt1 = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd1);
@@ -155,7 +155,7 @@ namespace Restoran_Siparis_Uygulamasi.View
 
             if (guna2MessageDialog1.Show("Bu siparişi tamamlamak istediğinizden emin misiniz?") == DialogResult.Yes)
             {
-                string qry = @"UPDATE Anamasa SET durum = 'Complete' WHERE AnaID = @ID";
+                string qry = @"UPDATE Anamasa SET durum = 'Sipariş Hazır' WHERE AnaID = @ID";
                 Hashtable ht = new Hashtable { { "@ID", id } };
 
                 if (AnaSinif.SQL(qry, ht) > 0)

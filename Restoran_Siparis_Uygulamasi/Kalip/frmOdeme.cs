@@ -59,7 +59,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
                         }
                     }
 
-                    MessageBox.Show("Fatura durumu başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Fatura Ödendi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Fatura listesini yenile
                     frmFaturaListe billList = Application.OpenForms.OfType<frmFaturaListe>().FirstOrDefault();

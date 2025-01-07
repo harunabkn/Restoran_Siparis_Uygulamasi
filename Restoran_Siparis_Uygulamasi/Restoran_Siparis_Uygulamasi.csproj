@@ -270,6 +270,7 @@
     <EmbeddedResource Include="Sayfalar\frmMasaSayfa.resx">
       <DependentUpon>frmMasaSayfa.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App1.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

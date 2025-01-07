@@ -14,7 +14,7 @@ namespace Restoran_Siparis_Uygulamasi
 {
     internal class AnaSinif
     {
-        public static readonly string conection = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        public static readonly string conection = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
         public static SqlConnection con = new SqlConnection(conection);
 
@@ -31,7 +31,7 @@ namespace Restoran_Siparis_Uygulamasi
             if (veri.Rows.Count > 0)
             {
                 kontrol = true;
-                KULLANICI = veri.Rows[0]["klnAdi"].ToString();
+                KULLANICI = veri.Rows[0]["klnRol"].ToString();
             }
 
             return kontrol;

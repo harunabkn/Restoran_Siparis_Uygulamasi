@@ -1,4 +1,5 @@
-﻿using Restoran_Siparis_Uygulamasi.Model;
+﻿using Guna.UI2.WinForms;
+using Restoran_Siparis_Uygulamasi.Model;
 using Restoran_Siparis_Uygulamasi.View;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,26 @@ namespace Restoran_Siparis_Uygulamasi
 
         private void btnAnasayfa_Click(object sender, EventArgs e)
         {
-            AddControls(new frmRapor());
+            if (AnaSinif.KULLANICI == "Müdür") // Kullanıcının rolü Admin mi kontrol edilir
+            {
+                // Admin yetkisi varsa Rapor ekranını aç
+                AddControls(new frmRapor());
+            }
+            else
+            {
+                // Guna2MessageDialog kullanarak uyarı mesajını göster
+                Guna2MessageDialog messageDialog = new Guna2MessageDialog
+                {
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Warning,
+                    Text = "Bu bölüme erişim yetkiniz yok!",
+                    Caption = "Yetki Hatası",
+                    Style = MessageDialogStyle.Light // İsteğe bağlı: Light veya Dark tasarım
+                };
+
+                messageDialog.Show();
+            }
+            
         }
 
         private void btnKategoriler_Click(object sender, EventArgs e)
@@ -70,7 +90,26 @@ namespace Restoran_Siparis_Uygulamasi
         private void btnPersonel_Click(object sender, EventArgs e)
         {
 
-            AddControls(new frmPersonelSayfa());
+           
+            if (AnaSinif.KULLANICI == "Müdür") // Kullanıcının rolü Admin mi kontrol edilir
+            {
+                // Admin yetkisi varsa Personel ekranını aç
+                AddControls(new frmPersonelSayfa());
+            }
+            else
+            {
+                // Guna2MessageDialog kullanarak uyarı mesajını göster
+                Guna2MessageDialog messageDialog = new Guna2MessageDialog
+                {
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Warning,
+                    Text = "Bu bölüme erişim yetkiniz yok!",
+                    Caption = "Yetki Hatası",
+                    Style = MessageDialogStyle.Light // İsteğe bağlı: Light veya Dark tasarım
+                };
+
+                messageDialog.Show();
+            }
 
         }
 
