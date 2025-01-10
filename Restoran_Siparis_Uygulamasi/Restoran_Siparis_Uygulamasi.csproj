@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmRapor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,10 @@
     <Compile Include="Sayfalar\frmMasaSayfa.Designer.cs">
       <DependentUpon>frmMasaSayfa.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRapor.resx">
       <DependentUpon>frmRapor.cs</DependentUpon>
     </EmbeddedResource>
