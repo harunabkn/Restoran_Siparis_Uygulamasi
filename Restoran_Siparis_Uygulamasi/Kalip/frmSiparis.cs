@@ -25,6 +25,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
         {
             InitializeComponent();
         }
+        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
         public int AnaID = 0;
         public string SiparisTuru = "";
@@ -396,29 +397,39 @@ namespace Restoran_Siparis_Uygulamasi.Model
         private void btnFis_Click(object sender, EventArgs e)
         {
             // Ürün ve sipariş türü kontrolü
-            if (guna2DataGridView1.Rows.Count == 0 || string.IsNullOrEmpty(SiparisTuru))
+            if (guna2DataGridView1.Rows.Count == 0)
             {
                 guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
                 guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-                guna2MessageDialog1.Show("Lütfen ürün ve sipariş türünü seçin!");
+                guna2MessageDialog1.Show("Lütfen en az bir ürün ekleyin!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(SiparisTuru))
+            {
+                guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+                guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                guna2MessageDialog1.Show("Lütfen sipariş türünü seçin!");
                 return;
             }
 
             string qry1 = "";
             string qry2 = "";
 
-            int detayID = 0;
-
-            if (AnaID == 0) // Insert işlemi
+            // Ana sipariş ekleme veya güncelleme işlemi
+            if (AnaID == 0) // Yeni sipariş oluşturuluyorsa
             {
-                qry1 = @"Insert into Anamasa Values (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir,@kuryeID,@musAdi,@musTelefon);
-                    Select SCOPE_IDENTITY()";
+                qry1 = @"Insert into Anamasa 
+                 (mTarih, mZaman, masaAdi, garsonAdi, durum, siparisTuru, toplam, kabul, degistir, kuryeID, musAdi, musTelefon) 
+                 Values 
+                 (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir, @kuryeID, @musAdi, @musTelefon);
+                 Select SCOPE_IDENTITY()";
             }
-            else // Update işlemi
+            else // Mevcut sipariş güncelleniyorsa
             {
                 qry1 = @"Update Anamasa 
-         Set durum = @durum, toplam = @toplam, kabul = @kabul, degistir = @degistir 
-         Where AnaID = @AnaID;";
+                 Set durum = @durum, toplam = @toplam, kabul = @kabul, degistir = @degistir 
+                 Where AnaID = @AnaID;";
             }
 
             SqlCommand cmd = new SqlCommand(qry1, AnaSinif.con);
@@ -449,20 +460,21 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
 
+            // Sipariş detaylarını işleme (ekleme veya güncelleme)
             foreach (DataGridViewRow row in guna2DataGridView1.Rows)
             {
-                detayID = row.Cells["dgvid"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["dgvid"].Value);
+                int detayID = row.Cells["dgvid"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["dgvid"].Value);
 
-                if (detayID == 0) // Insert işlemi
+                if (detayID == 0) // Yeni ürün ekleniyorsa
                 {
                     qry2 = @"Insert into masaDetay (AnaID, proID, adet, fiyat, tumtoplam) 
-             Values (@AnaID, @proID, @adet, @fiyat, @tumtoplam);";
+                     Values (@AnaID, @proID, @adet, @fiyat, @tumtoplam);";
                 }
-                else // Update işlemi
+                else // Mevcut ürün güncelleniyorsa
                 {
                     qry2 = @"Update masaDetay 
-             Set proID = @proID, adet = @adet, fiyat = @fiyat, tumtoplam = @tumtoplam 
-             Where detayID = @detayID;";
+                     Set proID = @proID, adet = @adet, fiyat = @fiyat, tumtoplam = @tumtoplam 
+                     Where detayID = @detayID;";
                 }
 
                 SqlCommand cmd2 = new SqlCommand(qry2, AnaSinif.con);
@@ -478,13 +490,14 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
             }
 
-            guna2MessageDialog1.Show("Başarıyla Kaydedildi");
+            guna2MessageDialog1.Show("Sipariş başarıyla güncellendi!");
             guna2DataGridView1.Rows.Clear();
             lblMasa.Text = "";
             lblGarson.Text = "";
             lblToplam.Text = "00";
             lblKuryeIsmı.Text = "";
         }
+
 
         public int id = 0;
 
@@ -513,49 +526,46 @@ namespace Restoran_Siparis_Uygulamasi.Model
         INNER JOIN Urunler u ON d.proID = u.UrunID
         WHERE d.AnaID = @AnaID";
 
-            SqlCommand cmd2 = new SqlCommand(qry, AnaSinif.con);
-            cmd2.Parameters.AddWithValue("@AnaID", id); // Ana sipariş ID'sini filtreliyoruz
-            DataTable dt2 = new DataTable();
-            SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
-            da2.Fill(dt2);
+            SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
+            cmd.Parameters.AddWithValue("@AnaID", AnaID); // Ana sipariş ID'sini filtreliyoruz
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
 
-            if (dt2.Rows[0]["siparisTuru"].ToString() == "Teslimat")
+            if (dt.Rows.Count > 0)
             {
-                btnTeslimat.Checked = true;
-                lblGarson.Visible = false;
-                lblMasa.Visible = false;
-            }
-            else if (dt2.Rows[0]["siparisTuru"].ToString() == "Paket")
-            {
-                btnPaket.Checked = true;
-                lblGarson.Visible = false;
-                lblMasa.Visible = false;
-            }
-            else
-            {
-                btnMasa.Checked = true;
-                lblGarson.Visible = true;
-                lblMasa.Visible = true;
-            }
+                // Sipariş türünü ayarla
+                SiparisTuru = dt.Rows[0]["siparisTuru"].ToString();
 
+                // Sipariş türüne göre butonları işaretle
+                if (SiparisTuru == "Masa")
+                {
+                    btnMasa.Checked = true;
+                }
+                else if (SiparisTuru == "Paket")
+                {
+                    btnPaket.Checked = true;
+                }
+                else if (SiparisTuru == "Teslimat")
+                {
+                    btnTeslimat.Checked = true;
+                }
 
-            guna2DataGridView1.Rows.Clear();
-
-            foreach (DataRow item in dt2.Rows)
-            {
-                lblMasa.Text = item["masaAdi"].ToString();
-                lblGarson.Text = item["garsonAdi"].ToString();
-                // Her bir sütun için verileri çekiyoruz
-                string detailID = item["detayID"].ToString();
-                string urunAdi = item["UrunAdi"].ToString(); // Ürün adı (proName)
-                string proID = item["proID"].ToString();
-                string qty = item["adet"].ToString(); // Miktar
-                string price = item["fiyat"].ToString(); // Birim fiyat
-                string amount = item["tumtoplam"].ToString(); // Toplam fiyat
-
-                // DataGridView'e ekleme
-                object[] obj = { guna2DataGridView1.Rows.Count + 1, detailID, proID, urunAdi, qty, price, amount };
-                guna2DataGridView1.Rows.Add(obj);
+                // Ürünleri DataGridView'e yükle
+                guna2DataGridView1.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    object[] obj = {
+                guna2DataGridView1.Rows.Count + 1,
+                row["detayID"],
+                row["proID"],
+                row["UrunAdi"],
+                row["adet"],
+                row["fiyat"],
+                row["tumtoplam"]
+            };
+                    guna2DataGridView1.Rows.Add(obj);
+                }
             }
             GetTotal();
         }
@@ -565,32 +575,50 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
+
         private void btnOdeme_Click_1(object sender, EventArgs e)
         {
-            frmOdeme frm = new frmOdeme
-            {
-                MainID = id, // İşlem ID'sini aktar
-                amt = Convert.ToDouble(lblToplam.Text) // Toplam tutarı aktar
-            };
+            string durumQuery = $"SELECT durum FROM Anamasa WHERE AnaID = {AnaID}";
+            string durum = "";
 
             try
             {
-                AnaSinif.BlurBackground(frm); // BlurBackground çağrısı
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(durumQuery, con))
+                    {
+                        durum = cmd.ExecuteScalar()?.ToString();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Durum kontrolü sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // İşlem sonrası alanları sıfırla
-            AnaID = 0;
-            guna2DataGridView1.Rows.Clear();
-            lblMasa.Text = "";
-            lblGarson.Text = "";
-            lblMasa.Visible = false;
-            lblGarson.Visible = false;
-            lblToplam.Text = "00";
+            // Durum kontrolü
+            if (durum == "Hazırlanıyor") // Sadece "Hazırlanıyor" durumunda uyarı göster
+            {
+                var result = MessageBox.Show("Sipariş hazırlık aşamasında. Yine de ödeme yapmak istiyor musunuz?",
+                                             "Uyarı",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    return; // İşlemi durdur
+                }
+            }
+
+            // Ödeme ekranına yönlendirme
+            frmOdeme odemeFormu = new frmOdeme
+            {
+                MainID = AnaID,
+                faturaTutari = Convert.ToDouble(lblToplam.Text) // Fatura tutarını ödeme ekranına aktar
+            };
+            odemeFormu.ShowDialog();
         }
 
         private void btnTut_Click(object sender, EventArgs e)
