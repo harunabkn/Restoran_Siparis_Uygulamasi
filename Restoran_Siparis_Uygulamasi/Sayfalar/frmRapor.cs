@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Restoran_Siparis_Uygulamasi
 {
-    public partial class frmRapor : Form
+    public partial class frmRapor : sayfaModeli
     {
         public frmRapor()
         {

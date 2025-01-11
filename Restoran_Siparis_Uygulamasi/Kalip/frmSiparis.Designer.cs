@@ -50,6 +50,10 @@
             this.kategoriPaneli = new System.Windows.Forms.FlowLayoutPanel();
             this.urunPaneli = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.txtAra = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblKuryeIsmı = new System.Windows.Forms.Label();
             this.dgvSno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvproID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,10 +61,6 @@
             this.dgvQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.txtAra = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.lblKuryeIsmı = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCikis)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -449,67 +449,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.guna2DataGridView1_CellFormatting);
             // 
-            // dgvSno
-            // 
-            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvSno.FillWeight = 70F;
-            this.dgvSno.HeaderText = "Sr#";
-            this.dgvSno.MinimumWidth = 70;
-            this.dgvSno.Name = "dgvSno";
-            this.dgvSno.ReadOnly = true;
-            this.dgvSno.Width = 70;
-            // 
-            // dgvid
-            // 
-            this.dgvid.HeaderText = "id";
-            this.dgvid.Name = "dgvid";
-            this.dgvid.ReadOnly = true;
-            this.dgvid.Visible = false;
-            // 
-            // dgvproID
-            // 
-            this.dgvproID.HeaderText = "ProductID";
-            this.dgvproID.Name = "dgvproID";
-            this.dgvproID.ReadOnly = true;
-            this.dgvproID.Visible = false;
-            // 
-            // dgvName
-            // 
-            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvName.HeaderText = "İsim";
-            this.dgvName.Name = "dgvName";
-            this.dgvName.ReadOnly = true;
-            // 
-            // dgvQty
-            // 
-            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvQty.FillWeight = 30F;
-            this.dgvQty.HeaderText = "Sayısı";
-            this.dgvQty.MinimumWidth = 30;
-            this.dgvQty.Name = "dgvQty";
-            this.dgvQty.ReadOnly = true;
-            this.dgvQty.Width = 30;
-            // 
-            // dgvPrice
-            // 
-            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvPrice.FillWeight = 50F;
-            this.dgvPrice.HeaderText = "Fiyat";
-            this.dgvPrice.MinimumWidth = 50;
-            this.dgvPrice.Name = "dgvPrice";
-            this.dgvPrice.ReadOnly = true;
-            this.dgvPrice.Width = 50;
-            // 
-            // dgvAmount
-            // 
-            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvAmount.FillWeight = 60F;
-            this.dgvAmount.HeaderText = "Tutar";
-            this.dgvAmount.MinimumWidth = 60;
-            this.dgvAmount.Name = "dgvAmount";
-            this.dgvAmount.ReadOnly = true;
-            this.dgvAmount.Width = 60;
-            // 
             // guna2MessageDialog1
             // 
             this.guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
@@ -567,6 +506,67 @@
             this.lblKuryeIsmı.Text = "Masa";
             this.lblKuryeIsmı.Visible = false;
             this.lblKuryeIsmı.Click += new System.EventHandler(this.lblMasa_Click);
+            // 
+            // dgvSno
+            // 
+            this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvSno.FillWeight = 70F;
+            this.dgvSno.HeaderText = "";
+            this.dgvSno.MinimumWidth = 70;
+            this.dgvSno.Name = "dgvSno";
+            this.dgvSno.ReadOnly = true;
+            this.dgvSno.Width = 70;
+            // 
+            // dgvid
+            // 
+            this.dgvid.HeaderText = "id";
+            this.dgvid.Name = "dgvid";
+            this.dgvid.ReadOnly = true;
+            this.dgvid.Visible = false;
+            // 
+            // dgvproID
+            // 
+            this.dgvproID.HeaderText = "ProductID";
+            this.dgvproID.Name = "dgvproID";
+            this.dgvproID.ReadOnly = true;
+            this.dgvproID.Visible = false;
+            // 
+            // dgvName
+            // 
+            this.dgvName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvName.HeaderText = "İsim";
+            this.dgvName.Name = "dgvName";
+            this.dgvName.ReadOnly = true;
+            // 
+            // dgvQty
+            // 
+            this.dgvQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvQty.FillWeight = 30F;
+            this.dgvQty.HeaderText = "Sayısı";
+            this.dgvQty.MinimumWidth = 30;
+            this.dgvQty.Name = "dgvQty";
+            this.dgvQty.ReadOnly = true;
+            this.dgvQty.Width = 30;
+            // 
+            // dgvPrice
+            // 
+            this.dgvPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvPrice.FillWeight = 50F;
+            this.dgvPrice.HeaderText = "Fiyat";
+            this.dgvPrice.MinimumWidth = 50;
+            this.dgvPrice.Name = "dgvPrice";
+            this.dgvPrice.ReadOnly = true;
+            this.dgvPrice.Width = 50;
+            // 
+            // dgvAmount
+            // 
+            this.dgvAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvAmount.FillWeight = 60F;
+            this.dgvAmount.HeaderText = "Tutar";
+            this.dgvAmount.MinimumWidth = 60;
+            this.dgvAmount.Name = "dgvAmount";
+            this.dgvAmount.ReadOnly = true;
+            this.dgvAmount.Width = 60;
             // 
             // frmSiparis
             // 

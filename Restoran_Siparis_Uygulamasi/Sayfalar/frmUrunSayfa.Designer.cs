@@ -147,7 +147,7 @@
             // 
             this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvSno.FillWeight = 70F;
-            this.dgvSno.HeaderText = "Sr#";
+            this.dgvSno.HeaderText = "";
             this.dgvSno.MinimumWidth = 70;
             this.dgvSno.Name = "dgvSno";
             this.dgvSno.ReadOnly = true;

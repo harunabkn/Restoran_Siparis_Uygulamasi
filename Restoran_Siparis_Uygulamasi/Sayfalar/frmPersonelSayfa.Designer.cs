@@ -140,7 +140,7 @@
             // 
             this.dgvSno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dgvSno.FillWeight = 70F;
-            this.dgvSno.HeaderText = "Sr#";
+            this.dgvSno.HeaderText = "";
             this.dgvSno.MinimumWidth = 70;
             this.dgvSno.Name = "dgvSno";
             this.dgvSno.ReadOnly = true;
@@ -195,13 +195,13 @@
             this.dgvdel.ReadOnly = true;
             this.dgvdel.Width = 50;
             // 
-            // frmStaffView
+            // frmPersonelSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 555);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Name = "frmStaffView";
+            this.Name = "frmPersonelSayfa";
             this.Text = "frmStaffView";
             this.Load += new System.EventHandler(this.frmStaffView_Load);
             this.Controls.SetChildIndex(this.txtAra, 0);

@@ -74,10 +74,10 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="frmRapor.cs">
+    <Compile Include="Sayfalar\frmRapor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRapor.Designer.cs">
+    <Compile Include="Sayfalar\frmRapor.Designer.cs">
       <DependentUpon>frmRapor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGiris.cs">
@@ -207,7 +207,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRapor.resx">
+    <EmbeddedResource Include="Sayfalar\frmRapor.resx">
       <DependentUpon>frmRapor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
