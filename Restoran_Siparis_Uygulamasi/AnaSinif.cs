@@ -77,10 +77,10 @@ namespace Restoran_Siparis_Uygulamasi
         {
             // Null kontrolleri
             if (gridv == null)
-                throw new ArgumentNullException(nameof(gridv), "DataGridView nesnesi null.");
+                throw new ArgumentNullException(nameof(gridv), "DataGridView nesnesi Boş.");
 
             if (listb == null)
-                throw new ArgumentNullException(nameof(listb), "ListBox nesnesi null.");
+                throw new ArgumentNullException(nameof(listb), "ListBox nesnesi Boş.");
 
             if (listb.Items.Count == 0)
             {

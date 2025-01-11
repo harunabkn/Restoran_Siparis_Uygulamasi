@@ -37,11 +37,31 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 b.FillColor = Color.FromArgb(241, 85, 126);
                 b.HoverState.FillColor = Color.FromArgb(50, 55, 89);
 
+                // Masa durumu kontrolü
+                string durumSorgu = "SELECT durum FROM Anamasa WHERE masaAdi = @masaAdi";
+                SqlCommand durumCmd = new SqlCommand(durumSorgu, AnaSinif.con);
+                durumCmd.Parameters.AddWithValue("@masaAdi", row["tabloAdi"].ToString());
+
+                if (AnaSinif.con.State == ConnectionState.Closed) AnaSinif.con.Open();
+                object result = durumCmd.ExecuteScalar();
+                if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
+
+                // Sadece siparişi olan masalar için kontrol yap
+                if (result != null)
+                {
+                    string durum = result.ToString();
+                    if (durum != "Ödendi")
+                    {
+                        b.Enabled = false;
+                        b.FillColor = Color.Gray; // Görsel olarak devre dışı olduğunu belirtmek için renk değiştir
+                    }
+                }
+
                 b.Click += new EventHandler(b_Click);
                 flowLayoutPanel1.Controls.Add(b);
             }
-
         }
+
         private void b_Click(object sender, EventArgs e)
         {
            MasaAdi = (sender as Guna.UI2.WinForms.Guna2Button).Text.ToString();
