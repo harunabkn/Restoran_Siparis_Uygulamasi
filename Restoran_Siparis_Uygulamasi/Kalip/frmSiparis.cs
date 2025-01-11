@@ -394,6 +394,10 @@ namespace Restoran_Siparis_Uygulamasi.Model
             }
         }
 
+
+
+
+
         private void btnFis_Click(object sender, EventArgs e)
         {
             // Ürün ve sipariş türü kontrolü
@@ -415,9 +419,10 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             string qry1 = "";
             string qry2 = "";
+            bool yeniSiparis = AnaID == 0; // Yeni sipariş mi kontrolü
 
             // Ana sipariş ekleme veya güncelleme işlemi
-            if (AnaID == 0) // Yeni sipariş oluşturuluyorsa
+            if (yeniSiparis) // Yeni sipariş oluşturuluyorsa
             {
                 qry1 = @"Insert into Anamasa 
                  (mTarih, mZaman, masaAdi, garsonAdi, durum, siparisTuru, toplam, kabul, degistir, kuryeID, musAdi, musTelefon) 
@@ -449,7 +454,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             if (AnaSinif.con.State == ConnectionState.Closed) AnaSinif.con.Open();
 
-            if (AnaID == 0)
+            if (yeniSiparis)
             {
                 AnaID = Convert.ToInt32(cmd.ExecuteScalar());
             }
@@ -490,13 +495,24 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
             }
 
-            guna2MessageDialog1.Show("Sipariş başarıyla güncellendi!");
+            // Yeni sipariş mi yoksa güncelleme mi olduğuna göre mesaj göster
+            if (yeniSiparis)
+            {
+                guna2MessageDialog1.Show("Sipariş başarıyla alındı!");
+            }
+            else
+            {
+                guna2MessageDialog1.Show("Sipariş başarıyla güncellendi!");
+            }
+
+            // Form alanlarını sıfırla
             guna2DataGridView1.Rows.Clear();
             lblMasa.Text = "";
             lblGarson.Text = "";
             lblToplam.Text = "00";
             lblKuryeIsmı.Text = "";
         }
+
 
 
         public int id = 0;
