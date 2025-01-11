@@ -19,7 +19,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             InitializeComponent();
         }
-        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
 
         private void frmProductView_Load(object sender, EventArgs e)

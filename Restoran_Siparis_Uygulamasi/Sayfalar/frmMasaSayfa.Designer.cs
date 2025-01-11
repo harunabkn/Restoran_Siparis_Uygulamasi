@@ -48,6 +48,11 @@
             this.btnEkle.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
             this.btnEkle.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             // 
+            // label2
+            // 
+            this.label2.Size = new System.Drawing.Size(79, 25);
+            this.label2.Text = "Masalar";
+            // 
             // txtAra
             // 
             this.txtAra.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
