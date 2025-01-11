@@ -1,6 +1,6 @@
-﻿namespace Restoran_Siparis_Uygulamasi.View
+﻿namespace Restoran_Siparis_Uygulamasi
 {
-    partial class frmKategoriSayfa
+    partial class frmRapor
     {
         /// <summary>
         /// Required designer variable.
@@ -19,7 +19,6 @@
             }
             base.Dispose(disposing);
         }
-
 
         #region Windows Form Designer generated code
 
@@ -43,16 +42,22 @@
             // 
             // btnEkle
             // 
+            this.btnEkle.BackColor = System.Drawing.Color.Transparent;
             this.btnEkle.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnEkle.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnEkle.HoverState.ImageSize = new System.Drawing.Size(57, 57);
+            this.btnEkle.Image = null;
             this.btnEkle.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Normal;
+            this.btnEkle.Location = new System.Drawing.Point(922, 0);
             this.btnEkle.PressedState.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnEkle.Size = new System.Drawing.Size(10, 10);
+            this.btnEkle.UseTransparentBackground = true;
+            this.btnEkle.Visible = false;
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(139, 25);
-            this.label2.Text = "Kategori Listesi";
+            this.label2.Size = new System.Drawing.Size(84, 25);
+            this.label2.Text = "Raporlar";
             // 
             // txtAra
             // 
@@ -62,6 +67,14 @@
             this.txtAra.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtAra.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAra.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAra.Location = new System.Drawing.Point(922, 0);
+            this.txtAra.Size = new System.Drawing.Size(10, 10);
+            this.txtAra.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(919, 0);
+            this.label1.Visible = false;
             // 
             // guna2DataGridView1
             // 
@@ -109,7 +122,7 @@
             this.guna2DataGridView1.RowTemplate.Height = 35;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.guna2DataGridView1.Size = new System.Drawing.Size(863, 374);
-            this.guna2DataGridView1.TabIndex = 5;
+            this.guna2DataGridView1.TabIndex = 6;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -131,7 +144,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
             // 
             // dgvSno
             // 
@@ -180,19 +192,18 @@
             this.dgvdel.ReadOnly = true;
             this.dgvdel.Width = 50;
             // 
-            // frmKategoriSayfa
+            // frmRapor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(933, 590);
+            this.ClientSize = new System.Drawing.Size(933, 588);
             this.Controls.Add(this.guna2DataGridView1);
-            this.Name = "frmKategoriSayfa";
-            this.Text = "frmCategoryView";
-            this.Load += new System.EventHandler(this.frmCategoryView_Load);
-            this.Controls.SetChildIndex(this.txtAra, 0);
+            this.Name = "frmRapor";
+            this.Text = "frmHome";
+            this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.btnEkle, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.guna2DataGridView1, 0);
+            this.Controls.SetChildIndex(this.txtAra, 0);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
