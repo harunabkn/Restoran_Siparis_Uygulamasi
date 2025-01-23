@@ -19,7 +19,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             InitializeComponent();
         }
-        private readonly string connectionString = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
         private void frmStaffView_Load(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace Restoran_Siparis_Uygulamasi.View
             lb.Items.Add(dgvName);
             lb.Items.Add(dgvPhone);
             lb.Items.Add(dgvRole);
-            AnaSinif.LoadData(qry, guna2DataGridView1, lb);
+            AnaSinif.VeriYukle(qry, guna2DataGridView1, lb);
         }
         public override void btnEkle_Click(object sender, EventArgs e)
         {

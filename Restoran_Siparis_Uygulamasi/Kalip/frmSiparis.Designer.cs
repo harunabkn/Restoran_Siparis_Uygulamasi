@@ -263,7 +263,7 @@
             this.btnTut.Size = new System.Drawing.Size(10, 10);
             this.btnTut.TabIndex = 2;
             this.btnTut.Visible = false;
-            this.btnTut.Click += new System.EventHandler(this.btnTut_Click);
+            //this.btnTut.Click += new System.EventHandler(this.btnTut_Click);
             // 
             // btnYeni
             // 

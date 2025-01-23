@@ -36,12 +36,12 @@ namespace Restoran_Siparis_Uygulamasi.Model
         private void frmPOS_Load(object sender, EventArgs e)
         {
             guna2DataGridView1.BorderStyle = BorderStyle.FixedSingle;
-            AddCategory();
+            KategoriEkleButon();
 
             urunPaneli.Controls.Clear();
-            LoadProducts();
+            TumUrunler();
         }
-        private void AddCategory()
+        private void KategoriEkleButon()
         {
             string qry = "SELECT * FROM Kategori";
             SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
@@ -56,7 +56,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             allButton.FillColor = Color.FromArgb(50, 55, 89);
             allButton.Size = new Size(134, 45);
             allButton.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            allButton.Text = "All Categories";
+            allButton.Text = "Tüm Kategoriler";
             allButton.Click += new EventHandler(b_Click);
             kategoriPaneli.Controls.Add(allButton);
 
@@ -78,24 +78,41 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
-        private void b_Click(object sender, EventArgs e)
+        private void b_Click(object sender, EventArgs e)//butonlara tıklanınca yapılacak işlemler
         {
             // Tıklanan kategori butonunu al
             Guna.UI2.WinForms.Guna2Button b = (Guna.UI2.WinForms.Guna2Button)sender;
 
             // Eğer "Tüm Kategoriler" seçildiyse tüm ürünleri göster
-            if (b.Text == "All Categories")
+            if (b.Text == "Tüm Kategoriler")
             {
-                LoadProducts(); // Tüm ürünleri yükleme
+                TumUrunler(); // Tüm ürünleri yükleme
                 return;
             }
 
             // Kategori ID'sini veya Adını al ve ürünleri yükle
             string kategoriAdi = b.Text;
-            LoadProductsByCategoryName(kategoriAdi);
+            Kategori_Urun_Olusturma(kategoriAdi); 
         }
 
-        private void LoadProductsByCategoryName(string kategoriAdi)
+        private void TumUrunler()
+        {
+            string qry = "Select * From Urunler u inner join Kategori k on k.kategoriID = u.kategoriID";
+            SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            urunPaneli.Controls.Clear(); // Önceki ürünleri temizle
+
+            foreach (DataRow item in dt.Rows)
+            {
+                Byte[] imagearray = (byte[])item["uResim"];
+                EkleOgeleri("0", item["UrunID"].ToString(), item["UrunAdi"].ToString(), item["kategoriID"].ToString(), item["uFiyat"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
+            }
+        }
+
+        private void Kategori_Urun_Olusturma(string kategoriAdi)
         {
             // Kategori adına göre ürünleri filtrele
             string qry = @"
@@ -117,7 +134,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             foreach (DataRow item in dt.Rows)
             {
                 Byte[] imageArray = (byte[])item["uResim"];
-                AddItems("0",
+                EkleOgeleri("0",
                     item["UrunID"].ToString(),
                     item["UrunAdi"].ToString(),
                     item["kategoriID"].ToString(),
@@ -128,7 +145,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
         }
 
 
-        private void AddItems(string id, string proID, string name, string kategoriID, string uFiyat, Image uResim)
+        private void EkleOgeleri(string id, string proID, string name, string kategoriID, string uFiyat, Image uResim)
         {
             var w = new ucUrunSablon()
             {
@@ -173,39 +190,57 @@ namespace Restoran_Siparis_Uygulamasi.Model
         }
 
 
-
-
-        private void LoadProducts()
+        private void LoadEntries()
         {
-            string qry = "Select * From Urunler u inner join Kategori k on k.kategoriID = u.kategoriID";
+            string qry = @"
+        SELECT a.masaAdi, a.garsonAdi, a.siparisTuru, d.detayID, u.UrunAdi, d.proID, d.adet, d.fiyat, d.tumtoplam
+        FROM masaDetay d
+        INNER JOIN Anamasa a ON d.AnaID = a.AnaID
+        INNER JOIN Urunler u ON d.proID = u.UrunID
+        WHERE d.AnaID = @AnaID";
+
             SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cmd.Parameters.AddWithValue("@AnaID", AnaID); // Ana sipariş ID'sini filtreliyoruz
             DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
 
-            urunPaneli.Controls.Clear(); // Önceki ürünleri temizle
-
-            foreach (DataRow item in dt.Rows)
+            if (dt.Rows.Count > 0)
             {
-                Byte[] imagearray = (byte[])item["uResim"];
-                AddItems("0",item["UrunID"].ToString(), item["UrunAdi"].ToString(), item["kategoriID"].ToString(), item["uFiyat"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
+                // Sipariş türünü ayarla
+                SiparisTuru = dt.Rows[0]["siparisTuru"].ToString();
+
+                // Sipariş türüne göre butonları işaretle
+                if (SiparisTuru == "Masa")
+                {
+                    btnMasa.Checked = true;
+                }
+                else if (SiparisTuru == "Paket")
+                {
+                    btnPaket.Checked = true;
+                }
+                else if (SiparisTuru == "Teslimat")
+                {
+                    btnTeslimat.Checked = true;
+                }
+
+                // Ürünleri DataGridView'e yükle
+                guna2DataGridView1.Rows.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    object[] obj = {
+                guna2DataGridView1.Rows.Count + 1,
+                row["detayID"],
+                row["proID"],
+                row["UrunAdi"],
+                row["adet"],
+                row["fiyat"],
+                row["tumtoplam"]
+            };
+                    guna2DataGridView1.Rows.Add(obj);
+                }
             }
-        }
-        private void LoadProductsByCategory(int kategoriID)
-        {
-            string qry = $"Select * From Urunler WHERE kategoriID = {kategoriID}";
-            SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            urunPaneli.Controls.Clear(); // Önceki ürünleri temizle
-
-            foreach (DataRow item in dt.Rows)
-            {
-                Byte[] imagearray = (byte[])item["uResim"];
-                AddItems("0", item["UrunID"].ToString(), item["UrunAdi"].ToString(), item["kategoriID"].ToString(), item["uFiyat"].ToString(), Image.FromStream(new MemoryStream(imagearray)));
-            }
+            GetTotal();
         }
 
 
@@ -213,7 +248,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
-        private void btnCikis_Click(object sender, EventArgs e)
+        private void btnCikis_Click(object sender, EventArgs e)//kapatma butonu
         {
             this.Close();
         }
@@ -227,12 +262,8 @@ namespace Restoran_Siparis_Uygulamasi.Model
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnYeni_Click(object sender, EventArgs e)
+        private void btnYeni_Click(object sender, EventArgs e)//form temizleme yeni butonu
         {
             // Masa ve garson bilgilerini temizle
             lblMasa.Text = "";
@@ -257,50 +288,12 @@ namespace Restoran_Siparis_Uygulamasi.Model
             AnaID = 0;
 
             // Ürünleri yeniden yükle (isteğe bağlı)
-            LoadProducts();
+            TumUrunler();
         }
 
 
-        private void lblMasa_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            int sayac = 0;
-            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
-            {
-                sayac++;
-                row.Cells[0].Value = sayac;
-            }
-        }
-
-        private void GetTotal()
-        {
-            double tot = 0;
-            lblToplam.Text = "";
-
-            foreach (DataGridViewRow item in guna2DataGridView1.Rows)
-            {
-                if (item.Cells["dgvAmount"].Value != null &&
-                    !string.IsNullOrEmpty(item.Cells["dgvAmount"].Value.ToString()))
-                {
-                    double amount = double.Parse(item.Cells["dgvAmount"].Value.ToString());
-                    tot += amount;
-                }
-            }
-
-            lblToplam.Text = tot.ToString("N2");
-            Debug.WriteLine($"Toplam Tutar: {tot}");
-        }
-
-        private void btnTeslimat_Click(object sender, EventArgs e)
+        private void btnTeslimat_Click(object sender, EventArgs e)// teslimat butonu fonksiyonu 
         {
             lblMasa.Text = "";       // Masa bilgisi sıfırla
             lblGarson.Text = "";     // Garson bilgisi sıfırla
@@ -331,7 +324,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
         }
 
 
-        private void btnPaket_Click(object sender, EventArgs e)
+        private void btnPaket_Click(object sender, EventArgs e)//paket butonu ile ilgili fonksiyon 
         {
             lblMasa.Text = "";
             lblGarson.Text = "";
@@ -358,7 +351,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             }
         }
 
-        private void btnMasa_Click(object sender, EventArgs e)
+        private void btnMasa_Click(object sender, EventArgs e) // masa seçimi ile ilgili fonksiyon
         {
 
             SiparisTuru = "Masa";
@@ -398,7 +391,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
-        private void btnFis_Click(object sender, EventArgs e)
+        private void btnFis_Click(object sender, EventArgs e)// fiş ile ilgili fonksiyon
         {
             // Ürün ve sipariş türü kontrolü
             if (guna2DataGridView1.Rows.Count == 0)
@@ -517,7 +510,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
         public int id = 0;
 
-        private void btnFatura_Click(object sender, EventArgs e)
+        private void btnFatura_Click(object sender, EventArgs e)//fatura fonksiyon
         {
             frmFaturaListe frm = new frmFaturaListe();
             frm.Show(); // ShowDialog yerine Show kullan
@@ -533,58 +526,6 @@ namespace Restoran_Siparis_Uygulamasi.Model
         }
 
 
-        private void LoadEntries()
-        {
-            string qry = @"
-        SELECT a.masaAdi, a.garsonAdi, a.siparisTuru, d.detayID, u.UrunAdi, d.proID, d.adet, d.fiyat, d.tumtoplam
-        FROM masaDetay d
-        INNER JOIN Anamasa a ON d.AnaID = a.AnaID
-        INNER JOIN Urunler u ON d.proID = u.UrunID
-        WHERE d.AnaID = @AnaID";
-
-            SqlCommand cmd = new SqlCommand(qry, AnaSinif.con);
-            cmd.Parameters.AddWithValue("@AnaID", AnaID); // Ana sipariş ID'sini filtreliyoruz
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-            if (dt.Rows.Count > 0)
-            {
-                // Sipariş türünü ayarla
-                SiparisTuru = dt.Rows[0]["siparisTuru"].ToString();
-
-                // Sipariş türüne göre butonları işaretle
-                if (SiparisTuru == "Masa")
-                {
-                    btnMasa.Checked = true;
-                }
-                else if (SiparisTuru == "Paket")
-                {
-                    btnPaket.Checked = true;
-                }
-                else if (SiparisTuru == "Teslimat")
-                {
-                    btnTeslimat.Checked = true;
-                }
-
-                // Ürünleri DataGridView'e yükle
-                guna2DataGridView1.Rows.Clear();
-                foreach (DataRow row in dt.Rows)
-                {
-                    object[] obj = {
-                guna2DataGridView1.Rows.Count + 1,
-                row["detayID"],
-                row["proID"],
-                row["UrunAdi"],
-                row["adet"],
-                row["fiyat"],
-                row["tumtoplam"]
-            };
-                    guna2DataGridView1.Rows.Add(obj);
-                }
-            }
-            GetTotal();
-        }
 
 
 
@@ -592,7 +533,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
-        private void btnOdeme_Click_1(object sender, EventArgs e)
+        private void btnOdeme_Click_1(object sender, EventArgs e)//ödeme işlemi için yönlendirme
         {
             string durumQuery = $"SELECT durum FROM Anamasa WHERE AnaID = {AnaID}";
             string durum = "";
@@ -637,121 +578,53 @@ namespace Restoran_Siparis_Uygulamasi.Model
             odemeFormu.ShowDialog();
         }
 
-        private void btnTut_Click(object sender, EventArgs e)
+
+        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string qry1 = "";
-            string qry2 = "";
-
-            int detayID = 0;
-
-            if(SiparisTuru == "")
-            {
-                guna2MessageDialog1.Show("Lütfen sipariş türünü seçin");
-                return;
-            }
-
-            if (AnaID == 0) // Insert işlemi
-            {
-                qry1 = @"Insert into Anamasa Values (@mTarih, @mZaman, @masaAdi, @garsonAdi, @durum, @siparisTuru, @toplam, @kabul, @degistir,@kuryeID,@musAdi,@musTelefon);
-                            Select SCOPE_IDENTITY()";
-            }
-            else // Update işlemi
-            {
-                qry1 = @"Update Anamasa 
-                 Set durum = @durum, toplam = @toplam, kabul = @kabul, degistir = @degistir 
-                 Where AnaID = @AnaID;";
-            }
-
-            SqlCommand cmd = new SqlCommand(qry1, AnaSinif.con);
-            cmd.Parameters.AddWithValue("@AnaID", AnaID);
-            cmd.Parameters.AddWithValue("@mTarih", DateTime.Now.ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("@mZaman", DateTime.Now.ToString("HH:mm:ss"));
-            cmd.Parameters.AddWithValue("@masaAdi", lblMasa.Text);
-            cmd.Parameters.AddWithValue("@garsonAdi", lblGarson.Text);
-            cmd.Parameters.AddWithValue("@durum", "Bekle");
-            cmd.Parameters.AddWithValue("@siparisTuru", SiparisTuru);
-            cmd.Parameters.AddWithValue("@toplam", Convert.ToDouble(lblToplam.Text));
-            cmd.Parameters.AddWithValue("@kabul", 0.0);
-            cmd.Parameters.AddWithValue("@degistir", 0.0);
-            cmd.Parameters.AddWithValue("@kuryeID", kuryeID);
-            cmd.Parameters.AddWithValue("@musAdi", musteriAdi);
-            cmd.Parameters.AddWithValue("@musTelefon", musteriTelefon);
-
-            if (AnaSinif.con.State == ConnectionState.Closed) AnaSinif.con.Open();
-
-            if (AnaID == 0)
-            {
-                AnaID = Convert.ToInt32(cmd.ExecuteScalar());
-            }
-            else
-            {
-                cmd.ExecuteNonQuery();
-            }
-
-            if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
-
+            int sayac = 0;
             foreach (DataGridViewRow row in guna2DataGridView1.Rows)
             {
-                detayID = row.Cells["dgvid"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["dgvid"].Value);
+                sayac++;
+                row.Cells[0].Value = sayac;
+            }
+        }
 
-                if (detayID == 0) // Insert işlemi
+        private void GetTotal()
+        {
+            double tot = 0;
+            lblToplam.Text = "";
+
+            foreach (DataGridViewRow item in guna2DataGridView1.Rows)
+            {
+                if (item.Cells["dgvAmount"].Value != null &&
+                    !string.IsNullOrEmpty(item.Cells["dgvAmount"].Value.ToString()))
                 {
-                    qry2 = @"Insert into masaDetay (AnaID, proID, adet, fiyat, tumtoplam) 
-                     Values (@AnaID, @proID, @adet, @fiyat, @tumtoplam);";
+                    double amount = double.Parse(item.Cells["dgvAmount"].Value.ToString());
+                    tot += amount;
                 }
-                else // Update işlemi
-                {
-                    qry2 = @"Update masaDetay 
-                     Set proID = @proID, adet = @adet, fiyat = @fiyat, tumtoplam = @tumtoplam 
-                     Where detayID = @detayID;";
-                }
-
-                SqlCommand cmd2 = new SqlCommand(qry2, AnaSinif.con);
-                cmd2.Parameters.AddWithValue("@detayID", detayID);
-                cmd2.Parameters.AddWithValue("@AnaID", AnaID);
-                cmd2.Parameters.AddWithValue("@proID", Convert.ToInt32(row.Cells["dgvproID"].Value));
-                cmd2.Parameters.AddWithValue("@adet", Convert.ToInt32(row.Cells["dgvQty"].Value));
-                cmd2.Parameters.AddWithValue("@fiyat", Convert.ToDouble(row.Cells["dgvPrice"].Value));
-                cmd2.Parameters.AddWithValue("@tumtoplam", Convert.ToDouble(row.Cells["dgvAmount"].Value));
-
-                if (AnaSinif.con.State == ConnectionState.Closed) AnaSinif.con.Open();
-                cmd2.ExecuteNonQuery();
-                if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
             }
 
-            guna2MessageDialog1.Show("Başarıyla Kaydedildi");
-            guna2DataGridView1.Rows.Clear();
-            lblMasa.Text = "";
-            lblGarson.Text = "";
-            lblToplam.Text = "00";
-            lblKuryeIsmı.Text = "";
+            lblToplam.Text = tot.ToString("N2");
+            Debug.WriteLine($"Toplam Tutar: {tot}");
         }
+
+        private void lblMasa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
 
 
 
-/*frmCheckout frm = new frmCheckout
-{
-    MainID = id, // İşlem ID'sini aktar
-    amt = Convert.ToDouble(lblToplam.Text) // Toplam tutarı aktar
-};
-
-try
-{
-    MainClass.BlurBackground(frm); // BlurBackground çağrısı
-}
-catch (Exception ex)
-{
-    MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    return;
-}
-
-// İşlem sonrası alanları sıfırla
-AnaID = 0;
-guna2DataGridView1.Rows.Clear();
-lblMasa.Text = "";
-lblGarson.Text = "";
-lblMasa.Visible = false;
-lblGarson.Visible = false;
-lblToplam.Text = "00";*/

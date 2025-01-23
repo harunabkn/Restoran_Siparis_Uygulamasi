@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,12 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 b.HoverState.FillColor = Color.FromArgb(50, 55, 89);
 
                 // Masa durumu kontrolü
-                string durumSorgu = "SELECT durum FROM Anamasa WHERE masaAdi = @masaAdi";
+                string durumSorgu = @"
+            SELECT TOP 1 durum 
+            FROM Anamasa 
+            WHERE masaAdi = @masaAdi 
+            ORDER BY AnaID DESC";
+
                 SqlCommand durumCmd = new SqlCommand(durumSorgu, AnaSinif.con);
                 durumCmd.Parameters.AddWithValue("@masaAdi", row["tabloAdi"].ToString());
 
@@ -46,21 +52,29 @@ namespace Restoran_Siparis_Uygulamasi.Model
                 object result = durumCmd.ExecuteScalar();
                 if (AnaSinif.con.State == ConnectionState.Open) AnaSinif.con.Close();
 
-                // Sadece siparişi olan masalar için kontrol yap
+                // Durum kontrolü
                 if (result != null)
                 {
                     string durum = result.ToString();
-                    if (durum != "Ödendi")
+                    Debug.WriteLine($"Masa: {row["tabloAdi"]}, Durum: {durum}");
+
+                    if (durum == "Hazırlanıyor" || durum == "Sipariş Hazır")
                     {
                         b.Enabled = false;
-                        b.FillColor = Color.Gray; // Görsel olarak devre dışı olduğunu belirtmek için renk değiştir
+                        b.FillColor = Color.Gray; // Devre dışı olduğu belli olsun
                     }
                 }
+                else
+                {
+                    Debug.WriteLine($"Masa: {row["tabloAdi"]}, Durum: NULL (Aktif)");
+                }
 
+                // Tıklama olayını ekle
                 b.Click += new EventHandler(b_Click);
                 flowLayoutPanel1.Controls.Add(b);
             }
         }
+
 
         private void b_Click(object sender, EventArgs e)
         {

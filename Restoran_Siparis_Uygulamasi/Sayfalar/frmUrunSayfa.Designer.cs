@@ -186,7 +186,7 @@
             // dgvcat
             // 
             this.dgvcat.DataPropertyName = "kategoryAdi";
-            this.dgvcat.HeaderText = "Kategori";
+            this.dgvcat.HeaderText = "";
             this.dgvcat.Name = "dgvcat";
             this.dgvcat.ReadOnly = true;
             // 

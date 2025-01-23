@@ -14,11 +14,15 @@ namespace Restoran_Siparis_Uygulamasi
 {
     internal class AnaSinif
     {
-        public static readonly string conection = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        //Hangi SQL Server'a bağlanacak  kullanacağı veritabanı
+        public static readonly string conection = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
 
+        //sql server ile bağlantı kurmak için bir nesne oluşturur connection kullanarak
         public static SqlConnection con = new SqlConnection(conection);
 
 
+
+        //kullanıcı adı ve şifre kontrolü yapılır 
         public static bool KullaniciKontrol(string kullanici,string sifre)
         {
             bool kontrol = false;
@@ -56,11 +60,11 @@ namespace Restoran_Siparis_Uygulamasi
 
                 foreach (DictionaryEntry item in ht)
                 {
-                    cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
+                    cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);//SQL enjeksiyon saldırılarına karşı koruma sağlar
                 }
-                if (con.State == ConnectionState.Closed) { con.Open(); }
+                if (con.State == ConnectionState.Closed) { con.Open(); }//bağlantının açık olup olmadığı kontrol edilir açık değilse açar
                 res = cmd.ExecuteNonQuery();
-                if(con.State == ConnectionState.Open)
+                if(con.State == ConnectionState.Open)//bağlantı açıksa kapatır
                 {
                     con.Close();
                 }
@@ -73,7 +77,7 @@ namespace Restoran_Siparis_Uygulamasi
             return res;
         }
 
-        public static void LoadData(string qry, DataGridView gridv, ListBox listb)
+        public static void VeriYukle(string qry, DataGridView gridv, ListBox listb)
         {
             // Null kontrolleri
             if (gridv == null)
@@ -195,18 +199,3 @@ namespace Restoran_Siparis_Uygulamasi
     }
 }
 
-
-
-
-
-/*SqlCommand cmd = new SqlCommand(qry, con);
-cmd.CommandType = CommandType.Text;
-SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-DataTable veri = new DataTable();
-adapter.Fill(veri);
-
-
-cb.DisplayMember = "name";
-cb.ValueMember = "id";
-cb.DataSource = veri;
-cb.SelectedIndex = -1;*/

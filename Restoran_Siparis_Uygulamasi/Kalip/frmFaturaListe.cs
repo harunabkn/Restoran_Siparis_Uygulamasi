@@ -36,7 +36,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
             lb.Items.Add(dgvStatus);
             lb.Items.Add(dgvTotal);
 
-            AnaSinif.LoadData(qry, guna2DataGridView1, lb);
+            AnaSinif.VeriYukle(qry, guna2DataGridView1, lb);
         }
 
 
@@ -69,5 +69,7 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
             
         }
+
+        
     }
 }

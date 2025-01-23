@@ -22,9 +22,9 @@ namespace Restoran_Siparis_Uygulamasi
             Application.Exit();
         }
 
-        private void btnGiris_Click(object sender, EventArgs e)
+        private void btnGiris_Click(object sender, EventArgs e)// kullanıcı giriş kontrolü
         {
-            //main class içerisine veritabanı bağlantısı ve kullanıcı doğrulama fonksiyonu (IsValidUser) yazılması gerekli
+            
 
             if (AnaSinif.KullaniciKontrol(txtKullanici.Text, txtSifre.Text) == false )
             {
@@ -33,11 +33,11 @@ namespace Restoran_Siparis_Uygulamasi
             }
             else
             {
-                this.Hide();
+                this.Hide();//giriş formu gizle
                 frmAnasayfa frm= new frmAnasayfa();
-                frm.Show();
+                frm.Show();//yeni formu aç
             }
-            // veritabanına örnek bir kullanıcı eklenmesi gerekli test için
+            
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)//enter tuşuna basılınca giriş butonunun tetiklenmesini sağğlamak için fonksiyon
         {

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucUrunSablon));
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.txtGorsel = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblIsim = new System.Windows.Forms.Label();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.txtGorsel = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGorsel)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGorsel)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -52,18 +52,12 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(187, 179);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
-            // txtGorsel
+            // guna2Separator1
             // 
-            this.txtGorsel.Image = ((System.Drawing.Image)(resources.GetObject("txtGorsel.Image")));
-            this.txtGorsel.ImageRotate = 0F;
-            this.txtGorsel.Location = new System.Drawing.Point(51, 17);
-            this.txtGorsel.Name = "txtGorsel";
-            this.txtGorsel.Size = new System.Drawing.Size(91, 89);
-            this.txtGorsel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.txtGorsel.TabIndex = 0;
-            this.txtGorsel.TabStop = false;
-            this.txtGorsel.UseTransparentBackground = true;
-            this.txtGorsel.Click += new System.EventHandler(this.txtGorsel_Click);
+            this.guna2Separator1.Location = new System.Drawing.Point(-6, 116);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(184, 10);
+            this.guna2Separator1.TabIndex = 2;
             // 
             // panel1
             // 
@@ -84,22 +78,28 @@
             this.lblIsim.Text = "Ürün İsmi";
             this.lblIsim.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // guna2Separator1
+            // txtGorsel
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(-6, 116);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(184, 10);
-            this.guna2Separator1.TabIndex = 2;
+            this.txtGorsel.Image = ((System.Drawing.Image)(resources.GetObject("txtGorsel.Image")));
+            this.txtGorsel.ImageRotate = 0F;
+            this.txtGorsel.Location = new System.Drawing.Point(13, 17);
+            this.txtGorsel.Name = "txtGorsel";
+            this.txtGorsel.Size = new System.Drawing.Size(165, 89);
+            this.txtGorsel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.txtGorsel.TabIndex = 0;
+            this.txtGorsel.TabStop = false;
+            this.txtGorsel.UseTransparentBackground = true;
+            this.txtGorsel.Click += new System.EventHandler(this.txtGorsel_Click);
             // 
-            // ucProduct
+            // ucUrunSablon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.guna2ShadowPanel1);
-            this.Name = "ucProduct";
+            this.Name = "ucUrunSablon";
             this.Size = new System.Drawing.Size(193, 185);
             this.guna2ShadowPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtGorsel)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtGorsel)).EndInit();
             this.ResumeLayout(false);
 
         }

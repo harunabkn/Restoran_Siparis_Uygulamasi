@@ -44,7 +44,7 @@ namespace Restoran_Siparis_Uygulamasi
         private void frmMain_Load(object sender, EventArgs e)
         {
             lblKullanici.Text = AnaSinif.KULLANICI;
-            //_obj = this;
+            
         }
 
         private void btnAnasayfa_Click(object sender, EventArgs e)

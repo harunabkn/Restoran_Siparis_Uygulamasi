@@ -132,7 +132,7 @@ namespace Restoran_Siparis_Uygulamasi.View
                     Font = new Font("Segoe UI", 9, FontStyle.Bold),
                     ForeColor = Color.White,
                     Margin = new Padding(10, 5, 10, 5),
-                    Text = "Tamamla",
+                    Text = "Siparişi Tamamla",
                     Tag = dt1.Rows[i]["AnaID"].ToString()
                 };
                 b.Click += new EventHandler(b_click);

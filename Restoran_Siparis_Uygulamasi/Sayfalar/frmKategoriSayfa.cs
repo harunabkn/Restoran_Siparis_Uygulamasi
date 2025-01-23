@@ -20,16 +20,16 @@ namespace Restoran_Siparis_Uygulamasi.View
         {
             InitializeComponent();
         }
-        private readonly string connectionString = "Data Source=WIN-JF9UFIAIC1K\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=HUAWEI\\SQLEXPRESS; Initial Catalog=DbRestoranSiparis; Integrated Security=True; TrustServerCertificate=True;";
         public void GetData()
         {
             string qry = "select * from Kategori where kategoryAdi like '+"+ txtAra.Text + "%'";
             ListBox lb = new ListBox();
             lb.Items.Add(dgvid);
             lb.Items.Add(dgvName);
-            AnaSinif.LoadData(qry, guna2DataGridView1, lb);
+            AnaSinif.VeriYukle(qry, guna2DataGridView1, lb);
         }
-        private void CategoryList()
+        private void KategoriListesi()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -46,7 +46,7 @@ namespace Restoran_Siparis_Uygulamasi.View
         private void frmCategoryView_Load(object sender, EventArgs e)
         {
             GetData();
-            CategoryList();
+            KategoriListesi();
         }
 
 
@@ -55,7 +55,7 @@ namespace Restoran_Siparis_Uygulamasi.View
             frmKategoriEkle frm = new frmKategoriEkle();
             frm.ShowDialog();
             GetData();
-            CategoryList();
+            KategoriListesi();
 
         }
 
@@ -85,7 +85,7 @@ namespace Restoran_Siparis_Uygulamasi.View
                     frm.txtIsım.Text = Convert.ToString(guna2DataGridView1.CurrentRow.Cells["dgvName"].Value);
                     frm.ShowDialog();
                     GetData();
-                    CategoryList();
+                KategoriListesi();
             }
             if (guna2DataGridView1.CurrentCell.OwningColumn.Name == "dgvdel")
             {
@@ -103,7 +103,7 @@ namespace Restoran_Siparis_Uygulamasi.View
                     guna2MessageDialog1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
                     guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
                     guna2MessageDialog1.Show("Başarıyla Silindi...");
-                    CategoryList();
+                    KategoriListesi();
 
                 }
             }

@@ -41,7 +41,6 @@ namespace Restoran_Siparis_Uygulamasi.Model
             {
                 guna2MessageDialog1.Show("Başarıyla Kaydedildi...");
                 id = 0;
-                //txtIsım.Text = "";
                 txtIsım.Focus();
             }
             

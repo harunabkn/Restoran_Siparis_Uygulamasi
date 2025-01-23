@@ -118,19 +118,3 @@ namespace Restoran_Siparis_Uygulamasi.Model
 
 
 
-
-/* string qry = @" Update Anamasa set toplam = @total, kabul = @rec, degistir = @change, 
-                   durum = 'Paid' where AnaID = @id";
-
-           Hashtable ht = new Hashtable();
-           ht.Add("@id", MainID);
-           ht.Add("@total", txtFaturaTutari.Text);
-           ht.Add("@rec", txtAlinanTutar.Text);
-           ht.Add("@change", txtParaUstu.Text);
-
-           if (MainClass.SQL(qry, ht) > 0)
-           {
-               guna2MessageDialog1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-               guna2MessageDialog1.Show("Başarıyla Kaydedildi");
-               this.Close();
-           }*/
