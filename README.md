@@ -1,104 +1,191 @@
-# 🍽️ Restoran Sipariş Otomasyonu  
+```markdown
+# 🍽️ Restaurant Order Management System (Restoran Sipariş Uygulaması)
 
-Restoran Sipariş Otomasyonu, restoranlarda sipariş ve ödeme süreçlerinin dijital ortamda yönetilmesini sağlayan bir Windows Form uygulamasıdır. Proje; sipariş yönetimi, personel yetkilendirmesi, stok takibi ve raporlama gibi işlevleri kapsayan kapsamlı bir otomasyon sistemidir.  
+A comprehensive Windows Forms-based point-of-sale and restaurant management system built with C# .NET Framework, designed to handle the complete restaurant workflow from order creation through payment processing, kitchen operations, and reporting.
 
----
+## 🚀 Features
 
-## 🚀 Özellikler  
+### User Authentication & Role-Based Access
+- **Manager**: Staff management, table configuration, daily reporting
+- **Chef**: Menu editing, product management, price updates  
+- **Cashier**: Order completion, payment processing, revenue reports
+- **Waiter**: Table status management, order taking and editing
 
-- **Kullanıcı Yetkilendirme & Roller**  
-  - **Müdür:** Personel yönetimi, masa ekleme/çıkarma, günlük raporlama.  
-  - **Şef:** Menü düzenleme, yemek ekleme/çıkarma, fiyat güncelleme.  
-  - **Kasa Personeli:** Sipariş kapatma, ödeme alma, günlük gelir/gider raporu.  
-  - **Garson:** Masa durumu yönetimi, sipariş alma/düzenleme.  
+### Order Management System
+- Table-based order creation, updates, and cancellation
+- Real-time order status tracking (*Preparing, Completed, Cancelled*)
+- Kitchen display system for order preparation
+- Waiter assignment and table selection
 
-- **Sipariş Yönetimi**  
-  - Masalara bağlı sipariş oluşturma, güncelleme ve iptal etme.  
-  - Sipariş detayları üzerinde ürün/miktar bazlı kontrol.  
-  - Sipariş durumu takibi (*Hazırlanıyor, Tamamlandı, İptal*).  
+### Menu & Product Management
+- Category-based menu organization
+- Product inventory with stock control
+- Automatic removal of out-of-stock items
+- Price and availability management
 
-- **Menü Yönetimi**  
-  - Kategorilere göre menü oluşturma.  
-  - Yeni ürün ekleme, ürün fiyat ve stok güncelleme.  
+### Payment & Billing
+- Multiple payment methods (Cash, Card)
+- Professional receipt generation with Crystal Reports
+- Comprehensive transaction tracking
 
-- **Stok Takibi**  
-  - Ürün stok kontrolü.  
-  - Stoğu biten ürünleri sistemden otomatik kaldırma.  
+### Reporting & Analytics
+- Daily and detailed business reports
+- Staff performance analytics
+- Revenue and expense tracking
+- Crystal Reports integration for professional reporting
 
-- **Ödeme & Raporlama**  
-  - Nakit/Kart gibi farklı ödeme yöntemlerini destekleme.  
-  - Günlük ve detaylı işletme raporları.  
-  - Personel bazlı performans raporu.  
+## 🏗️ System Architecture
 
----
+### Technology Stack
+- **Framework**: .NET Framework 4.7.2
+- **UI Framework**: Windows Forms + Guna.UI2.WinForms
+- **Database**: SQL Server (`DbRestoranSiparis`)
+- **Reporting**: Crystal Reports
+- **Architecture**: Multi-Document Interface (MDI)
 
-## 🗃️ Veritabanı Tasarımı  
+### Core Components
+- **Authentication**: `frmGiris` - User login and role validation
+- **Main Dashboard**: `frmAnasayfa` - Central navigation hub
+- **Order Processing**: `frmSiparis` - Order creation and management
+- **Kitchen Display**: `frmMutfakSayfa` - Kitchen order tracking
+- **Payment System**: `frmOdeme` - Payment processing
+- **Entity Management**: Product, Category, Table, and Staff management forms
+- **Reporting**: `frmRapor` with Crystal Reports integration
 
-Projede **MsSQL** kullanılmıştır. Başlıca tablolar:  
+## 🗃️ Database Design
 
-- **Personel** → Çalışan bilgileri (rol, kullanıcı adı, maaş, iletişim vb.)  
-- **Masa** → Masa kapasitesi ve durum bilgileri (*Boş, Dolu, Temizlik Gerekiyor*).  
-- **Ürün** → Yemek ve içecek bilgileri (fiyat, stok, kategori).  
-- **Sipariş** → Sipariş temel bilgileri (hangi masa, hangi garson, zaman).  
-- **Sipariş Detay** → Sipariş edilen ürünlerin detayları.  
-- **Ödeme** → Siparişe bağlı ödeme bilgileri.  
-- **Sipariş Durumu** → Siparişlerin aşamalarını takip eden tablo.  
-- **Menü & Menü-Ürün İlişkisi** → Aktif menülerin yönetimi.  
+**Primary Tables:**
+- **Personel** → Staff information (roles, credentials, salary, contact)
+- **Masa** → Table capacity and status (*Available, Occupied, Cleaning Required*)
+- **Ürün** → Food and beverage information (price, stock, category)
+- **Sipariş** → Order basic information (table, waiter, timestamp)
+- **Sipariş Detay** → Detailed order items and quantities
+- **Ödeme** → Payment information linked to orders
+- **Sipariş Durumu** → Order status tracking
+- **Menü & Menü-Ürün İlişkisi** → Active menu management
 
----
+## 💻 Technical Implementation
 
-## 💻 Kullanılan Teknolojiler  
+### Form Inheritance Pattern
+- **`sayfaModeli`**: Base template for data management pages
+- **`ekleModeli`**: Base template for add/edit forms with standardized CRUD operations
 
-- **C# .NET Windows Forms** → Arayüz ve iş mantığı geliştirme.  
-- **MsSQL** → Veritabanı tasarımı ve yönetimi.  
-- **Entity Framework / ADO.NET** → Veritabanı işlemleri (CRUD operasyonları).  
-- **GitHub & Git** → Versiyon kontrolü ve takım çalışması.  
+### Resource Management
+- Centralized icon and image management through `Properties.Resources`
+- Icons8 library integration for consistent UI elements
+- Localized interface support
 
----
+### Database Access
+- `AnaSinif` class provides centralized database utilities
+- Connection management and common CRUD operations
+- User authentication and session management
 
-## 🖥️ Arayüz Özellikleri  
+## 🖥️ User Interface
 
-- **Giriş Paneli** → Kullanıcı rolüne göre farklı arayüzlere yönlendirme.  
-- **Ana Menü** → Kullanıcının yetkisine göre farklı menü butonları.  
-- **Masalar Ekranı** → Masa doluluk durumu takibi ve düzenlemesi.  
-- **Menü Yönetimi** → Ürün ekleme, düzenleme ve silme ekranı.  
-- **Ödeme Sayfası** → Sipariş kapatma ve farklı ödeme türleriyle işlem yapabilme.  
+### Main Application Flow
+1. **Login Screen** → Role-based authentication
+2. **Dashboard** → Navigation based on user permissions
+3. **Order Management** → Table selection, product selection, order processing
+4. **Kitchen Display** → Real-time order tracking for kitchen staff
+5. **Payment Processing** → Multiple payment methods and receipt generation
+6. **Management Interfaces** → Product, table, and staff administration
 
----
+### Key Screens
+- **Table Management** → Visual table layout with occupancy status
+- **Menu Interface** → Category-based product selection
+- **Payment Terminal** → Professional checkout experience
+- **Kitchen Display** → Order queue management
+- **Reporting Dashboard** → Business analytics and insights
 
-## 📌 Proje Yapısı  
-📦 RestoranSiparisOtomasyonu
-├─ 📂 Database # MSSQL tabloları ve ilişkileri
-├─ 📂 Forms # Windows Form arayüzleri (UI/UX)
-├─ 📂 BusinessLogic # Sipariş, ödeme ve raporlama iş mantığı
-├─ 📂 Models # Veritabanı modelleri
-├─ 📂 Reports # Günlük/aylık raporlama modülü
-└─ Program.cs # Uygulama giriş noktası
+## ⚡ Installation & Setup
 
+### Prerequisites
+- Visual Studio 2017 or later
+- .NET Framework 4.7.2
+- SQL Server (LocalDB or full instance)
+- Crystal Reports Runtime
 
----
+### Installation Steps
 
-## ⚡ Kurulum & Çalıştırma  
-
-1. **Projeyi klonlayın**  
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/kullaniciadi/RestoranSiparisOtomasyonu.git
+   git clone https://github.com/harunabkn/Restoran_Siparis_Uygulamasi.git
+   ```
 
-Veritabanını oluşturun
+2. **Database Setup**
+   - Create SQL Server database named `DbRestoranSiparis`
+   - Run database scripts to create tables and relationships
+   - Update connection string in `app.config`
 
-Database/Script.sql dosyasını MsSQL üzerinde çalıştırarak tabloları oluşturun.
-Uygulamayı çalıştırın
+3. **Dependencies**
+   - Install Guna.UI2.WinForms NuGet package
+   - Ensure Crystal Reports runtime is installed
 
-Visual Studio içerisinde projeyi açın.
-app.config içerisindeki veritabanı bağlantı ayarlarını güncelleyin.
-Debug/Run ile uygulamayı başlatın.
-👨‍💻 Geliştirici Ekibi
-Erhan Dündar → Backend & İş Mantığı
-Ezgi Kaplan → UI/UX & Form Tasarımı
-Harun Abukan → Veritabanı & Veri Yönetimi
+4. **Build and Run**
+   - Open solution in Visual Studio
+   - Build the project
+   - Run in Debug mode for development
 
-📜 Lisans
-Bu proje eğitim amaçlı geliştirilmiştir.
+## 📁 Project Structure
 
-text
-MIT License
+```
+Restoran_Siparis_Uygulamasi/
+├── 📂 Sayfalar/              # Application forms and pages
+├── 📂 Properties/            # Application properties and resources
+├── 📂 Resources/             # Icons, images, and static assets
+├── 📂 bin/                   # Compiled binaries
+├── 📂 obj/                   # Build artifacts
+├── Program.cs                # Application entry point
+├── AnaSinif.cs              # Core database utilities
+├── CrystalReport1.rpt       # Report template
+└── *.csproj                 # Project configuration
+```
+
+## 🔧 Configuration
+
+### Database Connection
+Update the connection string in `app.config`:
+```xml
+<connectionStrings>
+  <add name="DbRestoranSiparis" 
+       connectionString="Server=.;Database=DbRestoranSiparis;Integrated Security=true;" />
+</connectionStrings>
+```
+
+### User Roles
+Default user roles can be configured through the staff management interface:
+- Manager (Full access)
+- Chef (Menu and kitchen access)
+- Cashier (Order and payment access)
+- Waiter (Order taking access)
+
+## 🤝 Contributing
+
+This project was developed as an educational initiative. Contributions are welcome for:
+- UI/UX improvements
+- Additional reporting features
+- Performance optimizations
+- Database schema enhancements
+
+## 👨‍💻 Development Team
+
+- **Harun Abukan** → Database & Data Management
+- **Backend Development** → Business logic and system architecture
+- **UI/UX Design** → Form design and user experience
+
+## 📜 License
+
+This project is developed for educational purposes.
+
+**MIT License** - See LICENSE file for details
+
+## 🔗 Additional Resources
+
+- [System Architecture Documentation](wiki/System-Architecture)
+- [Database Schema](wiki/Database-Design)
+- [User Manual](wiki/User-Guide)
+- [API Documentation](wiki/API-Reference)
+
+---
+
+*For technical support or questions, please open an issue in the GitHub repository.*
